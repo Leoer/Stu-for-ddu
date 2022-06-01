@@ -1,0 +1,433 @@
+
+
+查看版本：git --version
+检查配置信息：git config --list
+全局范围的签名设置：
+	git config --global user.name Adam
+	git config --global user.email Adam@163.com
+查看设置的结果：gcat ~/.gitconfig
+创建Git的工作区：mkdir ~/mygit
+进入创建的工作目录：cd mygit
+
+获得项目的Git仓库：
+    (1).从现有仓库克隆：
+    git clone [url]        git clone git://github.com/schacon/grit.git
+                           git clone git://github.com/schacon/grit.git mygrit 
+    唯一的差别就是，现在新建的目录成了 mygrit，其他的都和上边的一样。
+
+初始化本地：git init
+查看本地库状态：git status
+新增文件：vim myfile
+    关于vim的一些技巧：
+        打开： vim file (无则创建，有则打开)此时为命令模式
+        编辑：输入i进入编辑模式
+        退出编辑模式：按ESC退出编辑模式，进入命令模式
+        退出vim：在命令模式下键入"ZZ"或者":wq"保存修改并且退出vim
+        保存文件：键入":w"只保存文件，并停留在命令模式
+        放弃修改并退出vim：在命令模式下键入":q!"回车
+        放弃修改但不退出vim：在命令模式下键入：":e!"回车后回到命令模式
+
+将文件提交到暂存区：git add myfile
+将所有文件提交到暂存区：git add .
+
+将暂存区的文件提交到本地库：git commit -m "提交说明" myfile
+
+查看版本库所有文件(指定文件)的提交日志：git log [filename]
+
+
+版本库中修改文件：
+    vim myfile                              修改文件  
+    git diff myfile                         查看工作区文件与暂存区对比，查看有哪些更新
+    git diff --cached/staged                查看暂存区的文件(多个)和上次提交时的快照(本地库)的差异
+    git diff --cached/staged myfile         查看暂存区的文件(myfile)和上次提交时的快照(本地库)的差异                            
+    git add myfile                          把文件加入到Git暂存区
+    git status                              查看暂存区状态，如果修改的文件没有添加暂存区，则commit到本地库的是之前的存在暂存区的旧版
+    git commit -m "提交说明" [file]          把暂存区所有[或指定文件]写入本地库
+    git commit -m -a "提交说明" [file]       跳过暂存区，即未被git add的文件也会被以修改过后的状态提交
+
+
+暂存区移除文件：
+    git rm  <file>                          将文件从暂存区和工作区中删除
+    git rm -f <file>                        如果删除之前修改过并且已经放到暂存区域,就用这个
+    git rm --cached <file>                  从暂存区中移除，但保留在工作目录中
+    git rm -r *                             进入某个目录中，执行此语句，会删除该目录下的所有文件和子目录
+    $ git rm log/\*.log                     删除所有 log/ 目录下扩展名为 .log 的文件
+    $ git rm \*~                            递归删除当前目录及其子目录中所有 ~ 结尾的文件 
+
+
+移动文件：
+    $ git mv file_from file_to              Git 中对文件改名
+    相当于： $ mv README.txt README
+            $ git rm README.txt
+            $ git add README
+
+
+查看提交历史：
+    默认不用任何参数的话，git log 会按提交时间列出所有的更新，最近的更新排在最上面。
+    常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新: git log -p-2
+    仅显示简要的增改行数统计：--stat
+    将每个提交放在一行显示:git log --pretty=oneline
+    定制要显示的记录格式，这样的输出便于后期编程提取分析:git log --pretty=format:"%h-%an, %ar :%s"
+        选项          说明
+        %H 提交对象（commit）的完整哈希字串
+        %h 提交对象的简短哈希字串
+        %T 树对象（tree）的完整哈希字串
+        %t 树对象的简短哈希字串
+        %P 父对象（parent）的完整哈希字串
+        %p 父对象的简短哈希字串
+        %an 作者（author）的名字
+        %ae 作者的电子邮件地址
+        %ad 作者修订日期（可以用 -date= 选项定制格式）
+        %ar 作者修订日期，按多久以前的方式显示
+        %cn 提交者(committer)的名字
+        %ce 提交者的电子邮件地址
+        %cd 提交日期
+        %cr 提交日期，按多久以前的方式显示
+        %s 提交说明
+    用 oneline 或 format 时结合 --graph 选项，可以看到开头多出一些 ASCII 字符串表示的简单图形，
+    形象地展示了每个提交所在的分支及其分化衍合情况
+    git log 命令支持的选项及其说明：
+    -p 按补丁格式显示每个更新之间的差异。
+    --stat 显示每次更新的文件修改统计信息。
+    --shortstat 只显示 --stat 中最后的行数修改添加移除统计。
+    --name-only 仅在提交信息后显示已修改的文件清单。
+    --name-status 显示新增、修改、删除的文件清单。
+    --abbrev-commit 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。
+    --relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）。
+    --graph 显示 ASCII 图形表示的分支合并历史。
+    --pretty 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。
+    
+    按照时间作限制的选项，比如 --since 和 --until：git log --since=2.week
+        选项         说明
+        -(n) 仅显示最近的 n 条提交
+        --since, --after 仅显示指定时间之后的提交。
+        --until, --before 仅显示指定时间之前的提交。
+        --author 仅显示指定作者相关的提交。
+        --committer 仅显示指定提交者相关的提交。
+    $ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" \
+        --before="2008-11-01" --no-merges -- t/
+
+
+撤销操作：（暂存区<-->本地库）
+    想要撤消刚才的提交操作，可以使用 --amend 选项重新提交：$ git commit --amend    【这里不理解，还需要研究】
+    $ git commit --amend命令的描述：
+        合并缓存区的修改和最近的一次commit, 然后用生成的新的commit替换掉老的。
+        如果缓存区没有内容, 那么利用amend可以修改上一次commit的描述。
+        不要对一个公共的commit使用amend：
+        amend后生成的commit是一个全新的commit, 之前的老的commit会从项目历史中被删除。
+        如果你amend了一个被其他开发者使用的commit, 会严重影响其他开发者。
+
+
+git restore --stage <file>和git restore <file>两个命令区分：
+    1、文件在暂存区且未作修改的情况
+        使用git restore --staged <file> 把文件从暂存区移动到工作区，即文件不被追踪；
+    2、文件在暂存区且已经修改的情况
+        使用git restore --staged <file> 把文件从暂存区移动到工作区，且不会撤销修改的内容；
+        使用git restore <file> 文件仍在暂存区且会撤销文件修改的内容；
+    3、文件在本地库已经修改的情况
+        使用git add <file> 把文件重新放到暂存区，且保留文件的修改；
+        使用git restore <file> 文件仍在本地代码库且会撤销文件的修改；
+    小结：
+        对于git restore <file>命令，会撤销文件的修改，使文件恢复到暂存区或本地代码库（取决于文件在修改前的状态）；
+        对于git restore --staged <file>命令，把文件从暂存区撤回到工作区，保留文件最后一次修改的内容；
+
+
+撤销修改：
+    1）在没有git add之前
+        $ git checkout -- file             撤销指定文件的修改
+
+    2） git add了，但没有git commit
+        $ git reset HEAD file              把add到暂存区的文件回退到工作区
+        $ git checkout file                更新
+
+    3） git add了，也git commit了
+        这种情况只能回溯历史版本了    
+
+
+回溯：
+    git log                               查看提交日志，commit后面对应的是版本ID
+    git reflog                            最前面黄色的7个符号就是版本ID的前七位
+    git reset --hard ID或ID的前七位        回溯到具体某个版本              
+    git reset --hard HEAD^                回溯上个版本
+    git reset --hard HEAD^^               回溯上上个版本
+    
+    回溯到某一文件的历史版本
+    $ git log file                        查看指定文件的提交日志
+    $ git reset 版本ID file                把文件回溯到指定版本，放在暂存区
+    $ git commit -m “提交说明“ file        把暂存区指定文件写入本地库
+    $ git checkout file                    更新
+
+
+
+远程仓库：
+
+查看当前远程库：git remote -v
+添加远程仓库:  git remote add [shortname] [url]
+从远程仓库抓取数据:$ git fetch [remote-name]
+推送数据到远程仓库:git push [remote-name] [branch-name]
+查看远程仓库信息:git remote show [remote-name] 
+远程仓库的重命名: git remote rename oldname newname
+远程仓库的删除:git remote rm [remote-name]
+
+打标签：
+
+列显已有的标签:git tag
+寻找某个标签的版本：git tag -1'v1.4.2.*'
+含附注的标签:$ git tag -a v1.4 -m 'my version 1.4'
+	-m 选项则指定了对应的标签说明
+使用 git show 命令查看相应标签的版本信息:	$ git show v1.4
+
+签署标签:如果有自己的私钥，还可以用 GPG 来签署标签:$ git tag -s v1.5 -m 'my signed 1.5 tag'
+轻量级标签:轻量级标签实际上就是一个保存着对应提交对象的校验和信息的文件,直接给标签即可：$ git tag v1.4-lw
+验证标签：可以使用 git tag -v [tag-name]
+分享标签：通过显式命令才能分享标签到远端仓库：git push origin [tagname]
+一次推送所有本地新增的标签上去：$ git push origin --tags
+
+Git 命令别名：用简单的别名代替复杂的命令，但原来的命令任然有效
+    $ git config --global alias.co checkout
+    $ git config --global alias.br branch
+    $ git config --global alias.ci commit
+    $ git config --global alias.st status
+    后面的命令都用了这里的别名。
+
+Git分支：
+    1）创建分支
+        $ git branch <branch_name>             创建指定名称的分支
+        $ git checkout <branch_name>           切换到指定分支
+        $ git checkout -b <branch_name>        创建并切换到指定分支
+
+    2） 查看分支
+        $ git branch             查看所有分支，* 号代表当前工作分支
+        $ git branch -r          查看远程所有分支
+        $ git branch -a          查看本地和远程的所有分支
+        $ git branch -v          查看分支详情，包括分支指向的commitId及提交信息
+    3） 删除分支 ？？？
+        删除一个干净的分支(即相对当前分支而言该分支没有新的提交记录)
+        $ git branch -d <branch_name>
+
+        强制删除一个分支，该分支有没有合并到当前分支的提交记录
+        $ git branch -D <branch_name>    ？？？
+
+        注意：删除分支前都需要先切换到其他分支才能进行删除操作
+
+    4） 恢复已删除分支
+        根据指定commitID创建新分支，也就是恢复到指定commitID时的分支
+        $ git branch <branch_name> < commitID>
+
+    5） 重命名分支
+         $ git branch -m <branch_name> <newname>
+
+    6） 分支合并
+        如果两个分支没有产生分叉情况，那么会进行快速合并，即fast-forward方式，它并不会产生新的commitId，只是改变了指针的指向
+        $ git merge <branch_name> 将指定分支合并到当前分支
+
+        合并分支时禁用Fast forward模式，在merge时就会生成一个新的commit，从日志上就可以看到分支合并记录
+        $ git merge --no-ff -m "msg" <branch_name>    ？？？
+
+    6） 分支合并冲突问题
+        冲突：例如，分支dev和master分别对一个文件进行修改并且commit，在master合并dev时，就会冲突CONFLICT (content): Merge conflict in …
+        在作为主干的分支上，查看冲突的文件，自主选择如何取舍
+        ==上面代表当前分支的内容，==下面代表被合并分支的内容。
+        将冲突标记去掉，然后内容根据需求进行恰当的修改，然后进行一次提交即完成了冲突的解决
+
+    7） 分支暂存
+    背景：当我们在分支上进行代码开发时，接到突发状况，当前的代码尚未完成且还不能直接提交。
+    分支暂存的机制：暂存当前分支，新建分支解决临时任务，而后再回到之前的暂存分支，恢复并继续开发。
+    $ git stash                    将工作暂存
+    $ git stash list               列出所有的暂存状态
+    从暂存区之中进行恢复，有两种处理方式：
+
+        1.先恢复，而后再删除暂存
+        $ git stash apply xxx        恢复暂存
+        $ git stash drop xxx          删除暂存
+
+        2.恢复的同时也将stash内容删除
+        $ git stash pop xxx          恢复并删除暂行
+
+    注意：这里的xxx，是通过git stash list命令查询出来的暂存的ID
+    例如： stash@{0}: WIP on dev: b65e9eb dev-4v，这个暂存的ID就是stash@{0}
+
+Git 使用 SHA-1 算法计算数据的校验和，通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。
+该字串由 40 个十六进制字符（0-9 及 a-f）组成。所有保存在 Git 数据库中的东西都是用此哈希值来作索引的，而不是靠文件名。
+
+忽略某些文件：
+    创建一个名为 .gitignore 的文件，列出要忽略的文件模式
+    文件 .gitignore 的格式规范如下：
+    1.所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。
+    2.可以使用标准的 glob 模式匹配。
+    3.匹配模式最后跟反斜杠（/）说明要忽略的是目录。
+    4.要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。
+    5.*表示0或任意多个字符，[abc] 匹配任何一个列在方括号中的字符，？表示只匹配一个字符，[1-6]表示范围内都可以匹配。
+    看一个 .gitignore 文件的例子：
+    # 此为注释 – 将被 Git 忽略
+        # 忽略所有 .a 结尾的文件
+        *.a
+        # 但 lib.a 除外
+        !lib.a
+        # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+        /TODO
+        # 忽略 build/ 目录下的所有文件
+        build/
+        # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+        doc/*.txt
+
+DAY：4
+1.标签
+
+    创建一个含附注类型的标签非常简单，用 -a （译注：取 annotated 的首字母）指定标签名字即可;-m 选项则指定了对应的标签说明，Git 会将此说明一同保存在标签对象中
+    pic1
+
+    轻量级标签实际上就是一个保存着对应提交对象的校验和信息的文件。要创建这样的标签，一个 -a，-s 或 -m 选项都不用，直接给出标签名字即可：
+    现在运行 git show 查看此标签信息，就只有相应的提交对象摘要：
+    pic2
+
+    如果前期忘记加注标签了，后期可以加注标签。先用git log命令查询需要加注项目的校验和（或者前几位字符），然后运行git tag -a [version] [校验和]
+    pic3
+
+2.git pull
+    该命令用于从远程获取代码并合并本地的版本。
+    命令格式： git pull <远程主机名> <远程分支名>:<本地分支名>
+    将远程origin主机的master分支拉取过来和本地的当前分支进行合并则可以省略<本地分支名>
+
+
+3.git push
+    该命令用于从将本地的分支版本上传到远程并合并。命令格式如下：
+    git push <远程主机名> <本地分支名>:<远程分支名>
+    如果本地分支名与远程分支名相同，则可以省略冒号：git push <远程主机名> <本地分支名>
+    如果本地版本与远程版本有差异，但又要强制推送可以使用：git push --force origin master
+    删除主机的分支可以使用 --delete 参数，比如删除 origin 主机的 master 分支：git push origin --delete master
+
+
+4.git merge
+    该命令用于合并两个分支
+    1.  如果两个分支没有产生分叉情况，那么会进行快速合并，它并不会产生新的commitId，只是改变了指针的方向
+        使用命令：git merge <branch_name> 将指定分支合并到当前分支
+
+    2.  分支合并中遇到冲突
+        冲突：例如，分支dev和master分别对一个文件进行修改并且commit，在master合并dev时，就会冲突CONFLICT (content): Merge conflict in …
+        在作为主干的分支上，查看冲突的文件，自主选择如何取舍
+        ==的上面代表当前分支的内容，==的下面代表被合并分支的内容。
+        将冲突标记去掉，然后内容根据需求进行恰当的修改，然后进行一次提交即完成了冲突的解决。
+        注意一个问题：commit的时候命令里面不能出现file名，直接git commit -m "说明"就行了。
+
+
+
+5.git checkout
+
+    1. git branch <new_branch>
+    在当前分支的基础上，创建新分支
+
+    2.git branch <branch> <start point>
+    基于当前分支的某一次commit来创建分支
+
+    3.git checkout --datch <branch>
+    切换到分支的游离状态，默认以该分支下的最后一次提交ID
+
+    4.git checkout -b <branch_name>        
+    创建并切换到指定分支
+
+    5.git checkout -B <branch>
+    已经存在一个跟你新建分支同名的分支，那么使用普通的git checkout -b <branch>这个命令，
+    是会报错的，且同名分支无法创建。如果使用-B参数，那么就可以强制创建新的分支，并会覆盖掉原来的分支。
+
+    6.git checkout --orphan <branch>
+    它会基于当前所在分支新建一个赤裸裸的分支，没有任何的提交历史，但是当前分支的内容都会有。
+    运行命令'git log'显示没有提交。
+
+    7.git checkout --merge <branch>
+    这个命令适用于在切换分支的时候，将当前分支修改的内容一起打包带走，同步到切换的分支下。
+    有两个需要注意的问题：
+    第一，如果当前分支和切换分支间的内容不同的话，容易造成冲突。
+    第二，切换到新分支后，当前分支修改过的内容就丢失了。
+    如果修改当前分支后，使用该命令跳转到其他分支，会让你做出修改，因为有冲突。而更改完后，之前的那个分支为保存修改的文件也会同步的发生改变。
+    如果当前分支test修改并未add到暂存区，运行次命令，master分支对应的文件会发生改变，在工作区。
+
+    8.git checkout -p <branch>
+    这个命令主要用来比较两个分支间的差异内容，并提供交互式的界面来选择进一步的操作。
+    这个命令不仅可以比较两个分支间的差异，还可以比较单个文件的差异哦！
+    （？的后面输入y(yes)就表示选择加入）
+
+
+
+6.git revert
+
+    该命令用于撤销某次操作，此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交。
+    git revert HEAD                  撤销前一次 commit
+    git revert HEAD^                  撤销前前一次 commit
+    git revert commit （比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）
+                                     撤销指定的版本，撤销也会作为一次提交进行保存。
+    
+    git revert 和 git reset的区别 
+    1. git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。 
+    2. 在回滚这一操作上看，效果差不多。但是在日后继续merge以前的老版本时有区别。因为git revert是用一次逆向的commit“中和”之前的提交，
+    因此日后合并老的branch时，导致这部分改变不会再次出现，但是git reset是之间把某些commit在某个branch上删除，因而和老的branch再次merge时，
+    这些被回滚的commit应该还会被引入。 
+    3. git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
+
+
+
+7.git reset 
+    git reset 命令语法格式如下：
+    git reset [--soft | --mixed | --hard] [HEAD]
+    --mixed 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。
+    git reset  [HEAD] 
+    git reset --soft HEAD
+    git reset --hard HEAD
+    git reset –-hard HEAD~3                # 回退上上上一个版本  
+    git reset –-hard bae128                # 回退到某个版本回退点之前的所有信息。 
+    git reset --hard origin/master        # 将本地的状态回退到和远程的一样 
+    HEAD 说明：
+        HEAD 表示当前版本
+        HEAD^ 上一个版本
+        HEAD^^ 上上一个版本
+        以此类推...
+    可以使用 ～数字表示
+        HEAD~0 表示当前版本
+        HEAD~1 上一个版本
+        HEAD^2 上上一个版本
+        HEAD^3 上上上一个版本
+    --soft 参数用于回退到某个版本;
+    --hard 参数撤销工作区中所有未提交的修改内容，
+           将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交：
+
+    git reset HEAD [file]   命令用于取消已缓存的内容。
+
+
+7.cherry-pick
+
+
+
+
+
+
+
+
+
+
+
+
+8.git rebase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
