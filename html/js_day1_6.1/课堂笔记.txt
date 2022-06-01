@@ -1,0 +1,159 @@
+1.事件
+  事件指的是文档或浏览器窗口中发生的一些特定的交互瞬间，也可以理解为：作用在对象上的操作（动作）。
+  事件是可以被JS监听到的行为。一般在开发中，是通过触发DOM来完成事件操作。
+  
+2.EventTarget接收事件接口
+  EventTarget是一个由可以接收事件的对象来实现接口，并且为它们创建监听器。
+  三个接口：
+    1）addEventListener()：绑定事件监听函数，实现监听
+    2）removeEventListener()：移除事件监听
+    3）dispatchEvent()：自动触发用户自定义事件
+  2.1 addEventListener()
+    语法：
+      DOM.addEventListener(type,listener[,useCapture])
+        type:事件名
+        listener:监听函数
+        useCapture:是否为事件捕获（true/false）
+  
+  2.2 removeEventListener()
+    语法：
+      DOM.removeEventListener(type,listener[,useCapture])
+        type:事件名
+        listener:监听函数
+        useCapture:是否为事件捕获（true/false）
+  
+  2.3 dispatchEvent()
+    语法：
+      DOM.dispatchEvent(event)
+        event:用户自定义事件
+
+3.JS常用事件
+  3.1 UI事件
+    onload：页面所有DOM元素加载完成后自动触发  （掌握）
+    onunload：当页面关闭或被切换到其它时触发，一般用于做一些善后处理
+    onabort：忽略错误事件
+    onerror：有页面有错时将触发该事件
+    onselect：选中表单元素中的文本内容时触发
+    onresize：改变窗口大小时触发  （掌握）
+    onscroll：滚动页面滚动条时触发  （掌握）
+  3.2 焦点事件（一般作用在表单组件上）
+    onfocus:获得焦点时触发  （掌握）
+    onblur:失去焦点时触发  （掌握）
+    onfocusin:获得焦点时触发（在子元素上也会触发，一般与onfocusout结合使用）
+    onfocusout:失去焦点时触发（在子元素上也会触发，一般与onfocusin结合使用）
+  3.3 鼠标事件
+    onclick：单击事件  （掌握）
+    ondblclick：双击事件
+    onmousedown：按下鼠标键  （掌握）
+    onmouseup：松开鼠标键  （掌握）
+    onmousemove：移动鼠标键  （掌握）
+    onmouseover：鼠标移入（经过）（会触发冒泡事件）  （掌握）
+    onmouseout：鼠标离开（会触发冒泡事件）  （掌握）
+    onmouseenter：鼠标移入（不会触发冒泡事件）  （掌握）
+    onmouseleave：鼠标离开（不会触发冒泡事件）  （掌握）
+  3.4 鼠标滚轮事件
+    onmousewheel：FF不支持（用mousescroll实现）
+  3.5 键盘事件（一般用于表单组件中）
+    onkeydown：按下键盘键  （掌握）
+    onkeyup：松开键盘键  （掌握）
+    onkeypress：输入字符（等价于onkeydown+onkeyup）  （掌握）
+
+    区别：
+      onkeydown和onkeyup一般用来获取按下的键的键值，功能键也有键值，不区分字母大小写；
+      onkeypress用来获取输入的字符的ASCII码值，不识别功能键，区分字母大小写
+  
+4.事件对象
+  4.1 什么是事件对象？
+    事件发生之后，全产生一个事件对象，作为参数传给监听函数。浏览器的原生提供一个Event对象，所有的事件都是这个对象的实例。
+    语法：
+      new Event(type,option)
+
+      type:事件名（一般是用户自定义的）
+      option:事件对象的配置，有两个重要的参数：
+        bubbles:true/false,是否允许冒泡
+        cancelable:true/false,表示事件是否可取消
+  4.2 事件对象常用的属性和方法
+    e.target: 获取当前事件触发的DOM节点
+    e.type:当前触发的事件名（只读）
+    e.eventPhase:返回当前事件所处的阶段（只读）
+      0：事件没有产生
+      1：处于捕获阶段
+      2：事件到达了目标点
+      3：事件处于冒泡阶段
+    e.cancelable:表示事件是否可以取消（只读）
+    e.preventDefault():阻止默认形为
+    e.stopPropagation():阻止冒泡
+  4.3 事件对象兼容写法
+    1)event对象兼容写法
+      var e = event || window.event
+    2)event目标对象兼容写法
+      event.target || event.srcElement
+    3)阻止默认形为兼容写法
+      event.preventDefault ? event.preventDefault() : event.returnValue = false
+
+      或者：
+        return false;
+
+    4)阻止冒泡的兼容写法
+      event.stopPropagation ? event.stopPropagation() : event.cancelBublle = true
+
+      或者：
+        return false;
+
+5.网页中常用坐标
+  5.1 获取屏幕的宽高
+    screen.width //屏幕的宽
+    screen.height //屏幕的高
+    screen.availWidth //屏幕可用宽度 屏幕的像素高度减去系统部件高度之后的值
+    screen.availHeight //屏幕可用高度 屏幕的像素宽度减去系统部件宽度之后的值（不包含任务栏的高度）
+  5.2 获得窗口位置及大小
+    window.screenTop //窗口顶部距屏幕顶部的距离
+    window.screenLeft //窗口左侧距屏幕左侧的距离
+    window.innerWidth //窗口中可视区域(viewpoint)的宽
+    window.innerHeight //窗口中可视区域(viewpoint)的高度 该值与浏览器是否显示菜单栏等因素有关
+    window.outerWidth //浏览器窗口本身的宽度(可视区域宽度+浏览器边框宽度)
+    window.outerHeight //浏览器窗口本身的高度
+
+    注意：
+      chrome在最大化时浏览器窗口没有边框宽度,非最大化时有8px边框
+      FF和IE上下左右有8px的边框宽度
+  5.3 元素对象的信息
+    盒子真实大小：
+      boxWidth = 2*margin + 2*border + 2*padding + width
+      boxHeight = 2*margin + 2*border + 2*padding + height
+
+    clientWidth ：在页面上返回内容的可视宽度（不包括边框，边距或滚动条）
+      clientWidth = 2*padding + width - scrollbarWidth
+
+    clientHeight：在页面上返回内容的可视高度（不包括边框，边距或滚动条）
+      clientHeight = 2*padding + height - scrollbarHeight
+
+    offsetWidth ：返回元素的宽度包括边框和填充，但不包括边距
+      offsetWidth = 2*border + 2*padding + width
+
+    offsetHeight ：返回元素的高度包括边框和填充，但不包括边距
+    offsetHeight = 2*border + 2*padding + height
+
+    offsetLeft： 获取对象相对于版面或由 offsetLeft属性指定的父坐标的计算左侧位置
+    offsetTop ： 获取对象相对于版面或由 offsetTop属性指定的父坐标的计算顶端位置
+
+    scrollWidth ：返回元素的整个宽度（包括带滚动条的隐蔽的地方）
+    scrollWidth = 2*padding + width
+
+    scrollHeight ：返回整个元素的高度（包括带滚动条的隐蔽的地方）
+    scrollHeight = 2*padding + width
+
+    scrollTop：向下滑动滚动块时元素隐藏内容的高度。不设置时默认为0，其值随着滚动块滚动而变化
+    scrollLeft： 向右滑动滚动块时元素隐藏内容的宽度。不设置时默认为0，其值随着滚动块滚动而变化
+  5.4 event对象中的坐标信息
+    event.pageX:相对整个页面的坐标，以页面的左上角为坐标原点到鼠标所在点的水平距离（IE8不支持）
+    event.pageY:相对整个页面的坐标，以页面的左上角为坐标原点到鼠标所在点的垂直距离（IE8不支持）
+
+    event.clientX:相对可视区域的坐标，以浏览器可视区域左上角为坐标原点到鼠标所在点的水平距离
+    event.clientY:相对可视区域的坐标，以浏览器可视区域左上角为坐标原点到鼠标所在点的垂直距离
+
+    event.screenX:相对电脑屏幕的坐标，以屏幕左上角为坐标原点到鼠标所在点的水平距离
+    event.screenY:相对电脑屏幕的坐标，以屏幕左上角为坐标原点到鼠标所在点的垂直距离
+
+    event.offsetX:相对于自身的坐标，以自身的padding左上角为坐标原点到鼠标所在点的水平距离
+    event.offsetY:相对于自身的坐标，以自身的padding左上角为坐标原点到鼠标所在点的水平距离
