@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦点事件</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin: auto;
+        }
+        input{
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ">
+        <input type="text" onfocusin="getfocus(this)" onfocusout="missfocus(this)">
+        <button onblur="missfocus(this)">11</button>
+        <input type="text" onfocusin="getfocus(this)" onfocusout="missfocus(this)">
+    </div>
+</body>
+
+</html>
+<script>
+    // document.getElementsByTagName('div').onfocus=function(){
+    //     alert('获得焦点！')
+    // }
+    function getfocus(x) {
+        x.style.background='yellow'
+
+    }
+    function missfocus(x) {
+        x.style.background='white'
+    }
+</script>

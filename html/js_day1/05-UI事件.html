@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI事件</title>
+    <style>
+        div{
+            width: 200px;
+            height: 2000px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+  <div class="box"><a href="https://www.baidu.com">box</a></div>  
+</body>
+</html>
+<script>
+    // onload
+    window.onload=function () {
+        console.log('Open the door!')
+    }
+    // onunload
+    // window.unonload=close1
+    // onresize
+    window.onresize=changewindowsize
+    function changewindowsize(){
+        alert('窗口大小已经改变！')
+    }
+    // onscroll
+    window.onscroll=scrolling
+    function scrolling(){
+        alert('你在动滚动条吧！')
+    }
+</script>
