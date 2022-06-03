@@ -23,15 +23,21 @@
         console.log('Open the door!')
     }
     // onunload
-    // window.unonload=close1
+    unonload=function(){
+        alert('关闭页面！')
+    }
     // onresize
     window.onresize=changewindowsize
-    function changewindowsize(){
+    function changewindowsize(){    
         alert('窗口大小已经改变！')
     }
     // onscroll
     window.onscroll=scrolling
     function scrolling(){
-        alert('你在动滚动条吧！')
+        console.log('你在动滚动条吧！')
+    }
+    // onerror
+    window.onerror=function(){
+        alert('页面出现错误！')
     }
 </script>
