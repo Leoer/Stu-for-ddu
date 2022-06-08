@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px red solid;
+      /* margin: 100px auto; */
+      position: absolute;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+</body>
+<script>
+  var oBox = document.getElementById('box');
+  var windowh = window.innerHeight;
+  var windoww = window.innerWidth;
+  // console.log(windoww);
+  // 当鼠标在目标dom下按键时执行以下代码
+  oBox.onmousedown = function (e) {
+    var e = e || window.event;
+    // 获取鼠标点击时相对dom的位置
+    var hx = e.clientX - this.offsetLeft;
+    var hy = e.clientY - this.offsetTop;
+    console.log(hx, hy);
+    // 当移动鼠标时
+    document.onmousemove = function (event) {
+      var ev = event || window.event;
+      var sbx = ev.clientX - hx;
+      var sby = ev.clientY - hy;
+      // 不让操作的dom超出可视区
+      if(sbx<0) sbx=0;
+      if(sby<0) sby=0;
+      if(sbx>windoww-oBox.offsetWidth) sbx=windoww-oBox.offsetWidth;
+      if(sby>windowh-oBox.offsetHeight) sby=windowh-oBox.offsetHeight;
+
+      oBox.style.left=sbx + 'px';
+      oBox.style.top=sby + 'px';
+
+      document.onmouseup=function(){
+        document.onmousemove=null;
+        document.onmouseup=null;
+      }
+    }
+  }
+</script>
+
+</html>
