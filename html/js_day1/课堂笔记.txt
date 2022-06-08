@@ -29,10 +29,10 @@
 
 3.JS常用事件
   3.1 UI事件
-    onload：页面所有DOM元素加载完成后自动触发  （掌握）
+    onload：页面所有DOM元素加载完成后自动触发  （掌握）   DOM写在body前面，需要加载onload事件。
     onunload：当页面关闭或被切换到其它时触发，一般用于做一些善后处理
     onabort：忽略错误事件
-    onerror：有页面有错时将触发该事件
+    onerror：当页面有错时将触发该事件
     onselect：选中表单元素中的文本内容时触发
     onresize：改变窗口大小时触发  （掌握）
     onscroll：滚动页面滚动条时触发  （掌握）

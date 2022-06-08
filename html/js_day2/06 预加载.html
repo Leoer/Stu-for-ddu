@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 用CSS和JS实现预加载</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 通过css实现预加载 */
+    /* #preload1 {
+      background: url(./imgs/1.jpg) no-repeat -9999px -9999px;
+    }
+
+    #preload2 {
+      background: url(./imgs/2.jpg) no-repeat -9999px -9999px;
+    }
+
+    #preload3 {
+      background: url(./imgs/3.jpg) no-repeat -9999px -9999px;
+    }
+
+    #preload4 {
+      background: url(./imgs/4.jpg) no-repeat -9999px -9999px;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div id="preload1">111</div>
+    <div id="preload2"></div>
+    <div id="preload3"></div>
+    <div id="preload4"></div>
+  </div>
+</body>
+<script>
+  // 将加载图片封装到一个函数中
+  function preloader() {
+    if (document.getElementById) {
+      document.getElementById('preload1').style.background = 'url(./imgs/1.jpg) no-repeat -9999px -9999px'
+      document.getElementById('preload2').style.background = 'url(./imgs/2.jpg) no-repeat -9999px -9999px'
+      document.getElementById('preload3').style.background = 'url(./imgs/3.jpg) no-repeat -9999px -9999px'
+      document.getElementById('preload4').style.background = 'url(./imgs/4.jpg) no-repeat -9999px -9999px'
+    }
+  }
+  // 监听DOM是否加载完成，只有加载完成后才能执行预加载
+  function addLoadEvent(fn) {
+    var load = window.onload;
+    if (typeof window.load == 'function') {
+      window.onload = fn
+    } else {
+      window.onload = function () {
+        if(load){
+          load()
+        }
+        fn();
+      }
+    }
+  }
+  addLoadEvent(preloader) 
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 懒加载</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    img.lazy-load {
+      width: 800px;
+      height: 450px;
+      display: block;
+      background-color: #eee;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="" class="lazy-load" data-src="./imgs/1.jpg" alt="">
+    <img src="" class="lazy-load" data-src="./imgs/2.jpg" alt="">
+    <img src="" class="lazy-load" data-src="./imgs/3.jpg" alt="">
+    <img src="" class="lazy-load" data-src="./imgs/4.jpg" alt="">
+    <img src="" class="lazy-load" data-src="./imgs/5.jpg" alt="">
+    <img src="" class="lazy-load" data-src="./imgs/6.jpg" alt="">
+  </div>
+</body>
+<script src="lazy-load.js"></script>
+<script>
+  var imgs = document.getElementsByClassName('lazy-load');
+  lazyload(imgs)
+  // console.log(imgs)
+  window.onscroll = function () { lazyload(imgs) }
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+    height: 200px;
+    width: 300px;
+    background-color: aqua;
+    }
+    .child{
+    height: 100px;
+    width: 200px;
+    background-color: rgb(225, 46, 19);
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">Please click me!</div>
+  </div>
+</body>
+<script>
+  var parent=document.getElementsByClassName('parent')[0]
+  var child=document.getElementsByClassName('child')[0]
+  child.addEventListener('click',function(){
+    console.log('child')
+  },true)// false 表示事件冒泡  true表示事件捕获
+  parent.addEventListener('click',function(){
+    console.log('parent')
+  },true)
+  document.body.addEventListener('click',function(){
+    console.log('body')
+  },true)
+  document.addEventListener('click',function(){
+    console.log('documen')
+  },true)
+  window.addEventListener('click',function(){
+    console.log('window')
+  },true)
+  //事件捕获：由最外层向最里层出发事件的过程，与事件冒泡相反。
+  //如果想要把事件冒泡改为事件捕获，要用addEventListener去写事件监听，不要直接用onXXX事件去写；
+  // 将触发的子元素的父元素以上的元素的事件后用true实现
+  // DOM.addEventListener('事件名', true)
+
+</script>
+</html>
