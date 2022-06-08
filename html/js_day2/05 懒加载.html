@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 事件委托</title>
+  <style>
+    .list {}
+  </style>
+</head>
+
+<body>
+  <ul class="list">
+    <li>li01</li>
+    <li>li02</li>
+    <li>li03</li>
+    <li>li04</li>
+    <li>li05</li>
+  </ul>
+</body>
+<script>
+  // 1.封装事件委托的对象
+  var EventUtil = {
+    // 处理Event对象兼容
+    getEvent: function (event) {
+      return event || window.event;
+    },
+    // 目标对象兼容处理
+    getTarget: function (event) {
+      return event.target || event.srcElement
+    },
+    // 绑定事件兼容处理
+    addHandler: function (element, type, handler) {
+      if (element.addEventListener) {
+        element.addEventListener(type, handler, false)
+      } else if (element.attachEvent) {
+        // 兼容ie低版本
+        element.attachEvent('on' + type, handler)
+      } else {
+        element['on' + type] = handler
+        // ul.onclick=function(){
+      }
+    }
+  };
+  var oList = document.getElementsByClassName('list')[0]
+  EventUtil.addHandler(oList,'click',function(event){
+    // console.log(111)
+    // 获取事件对象
+    event=EventUtil.getEvent(event);
+    // 获取目标对象
+    var target=EventUtil.getTarget(event);
+    // console.log(target)
+    target.style.color='red'
+    target.innerHTML+='aaaaa'
+  })
+</script>
+
+</html>

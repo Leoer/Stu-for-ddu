@@ -13,18 +13,23 @@
             border: 1px solid red;
             margin: auto;
         }
-        input{
+
+        input {
             height: 100px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container" ">
-        <input type="text" onfocusin="getfocus(this)" onfocusout="missfocus(this)">
+    <div class="container" >
+        <!-- <input type=" text" onfocusin="getfocus(this)" onfocusout="missfocus(this)">
         <button onblur="missfocus(this)">11</button>
-        <input type="text" onfocusin="getfocus(this)" onfocusout="missfocus(this)">
+        <input type="text" onfocusin="getfocus(this)" onfocusout="missfocus(this)"> -->
+        <p onfocusin="setvalue()" onfocusout="getvalue()">
+            <input type="text" class="houheng">
+        </p>
     </div>
+    <input type="text">
 </body>
 
 </html>
@@ -33,10 +38,24 @@
     //     alert('获得焦点！')
     // }
     function getfocus(x) {
-        x.style.background='yellow'
+        x.style.background = 'yellow'
 
     }
     function missfocus(x) {
-        x.style.background='white'
+        x.style.background = 'white'
+    }
+    // document.querySelector('.houheng').onfocusin = function () {
+    //     this.value = '这是默认内容'
+    // }
+    function setvalue() {
+        document.querySelector('.houheng').value = '这是默认内容'
+    }
+    function getvalue() {
+        documnet.querySelector('.houheng').value = ''
+        // if (documnet.querySelector('.houheng').value == '这是默认内容') {
+        //     documnet.querySelector('.houheng').value = ''
+        // } else {
+        //     alert(documnet.querySelector('.houheng').value)
+        // }
     }
 </script>
