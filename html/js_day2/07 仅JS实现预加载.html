@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 用JS实现预加载</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./imgs/1.jpg" alt="">
+    <div id="preload1">111</div>
+    <div id="preload2"></div>
+    <div id="preload3"></div>
+    <div id="preload4"></div>
+  </div>
+</body>
+<script>
+  // 将加载图片封装到一个函数中
+  function preloader() {
+    if (document.images) {
+      // 实例化图片对象
+      var img1 = new Image();
+      var img2 = new Image();
+      var img3 = new Image();
+      var img4 = new Image();
+
+      // 为图片对象添加属性
+      img1.src = './imgs/1.jpg';
+      img2.src = './imgs/2.jpg';
+      img3.src = './imgs/3.jpg';
+      img4.src = './imgs/4.jpg';
+    }
+  }
+  // 监听DOM是否加载完成，只有加载完成后才能执行预加载
+  function addLoadEvent(fn) {
+    var load = window.onload;
+    if (typeof window.load == 'function') {
+      window.onload = fn
+    } else {
+      window.onload = function () {
+        if (load) {
+          load()
+        }
+        fn();
+      }
+    }
+  }
+
+  addLoadEvent(preloader);
+</script>
+
+</html
