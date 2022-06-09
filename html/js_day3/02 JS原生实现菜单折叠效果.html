@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 JS原生实现菜单折叠效果</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .menu{
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      margin: 50px auto;
+      box-shadow: 2px 2px 5px #333;
+    }
+    .menu h3{
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .menu p{
+      /* height: 0; */
+      text-indent: 2em;
+      line-height: 1.5em;
+      background-color: #ccc;
+      padding: 10px;
+      display: none;
+      overflow: hidden;
+    }
+    .menu li:first-of-type p{
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="menu">
+    <li>
+      <h3>鼠</h3>
+      <p>
+        鼠之所以排在生肖榜上的第一位主要有三个原因：一是民间传说故事中的生肖排列。二是中国古代学者从古代昼夜十二时辰的角度解说地支和肖兽的配属关系。
+      </p>
+    </li>
+    <li>
+      <h3>牛</h3>
+      <p>
+        传说有一天玉皇大帝要排十二生肖，定下了牛、虎、兔、龙、蛇、马、羊、猴、鸡、狗、猪、猫。玉皇大帝让他们第二天来排名次。
+      </p>
+    </li>
+    <li>
+      <h3>兔</h3>
+      <p>
+        卯年生人，性格温和而事业有成，好静不好动。兔年生的人敏感，记忆力强，有慈悲心。守秩序，坚强、谦让、沉静独立、审美有渐渐衰微之兆，所以前运应积俭，以待老年之用。
+      </p>
+    </li>
+    <li>
+      <h3>虎</h3>
+      <p>
+        虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉虎年大吉
+      </p>
+    </li>
+  </ul>
+</body>
+<script>
+  var titles = document.getElementsByTagName('h3');
+  var texts = document.getElementsByTagName('P');
+  console.log(texts)
+  // 因为for先于回调函数（异步）执行完，如果在回调函数中获取i的值，讲得到的是for循环了之后的值。
+  // for (var i = 0; i < titles.length; i++) {
+  //   titles[i].onclick = function () {
+  //     for (var j = 0; j < texts.length; j++) {
+  //       if (j == i) { texts[j].style.dispaly = 'block'; }
+  //       else {
+  //         texts[j].style.dispaly = 'none';
+  //       }
+
+  //     }
+
+  //   }
+  // }
+  // 上面代码是不可行的
+  // 方法一：将for中的var改为let，let有闭包的作用。let属于es6写法
+  for (let i = 0; i < titles.length; i++) {
+  titles[i].onclick = function () {
+    for (let j = 0; j < texts.length; j++) {
+      if (j == i) { texts[j].style.dispaly = 'block'; }
+      else {
+        texts[j].style.dispaly = 'none';
+      }
+    }
+  }
+  }
+
+  // 方法二：用js闭包实现
+  /* for (let i = 0; i < titles.length; i++) {
+    (function () {
+      titles[i].onclick = function () {
+        for (let j = 0; j < texts.length; j++) {
+          if (j == i) { texts[j].style.dispaly = 'block'; }
+          else {
+            texts[j].style.dispaly = 'none';
+          }
+        }
+      }
+    })(i)
+  } */
+  /* 
+  (function(){
+  
+  })()
+  以上为自执行函数，（函数自己调用自己），又叫立即执行函数。
+  */
+</script>
+
+</html>
