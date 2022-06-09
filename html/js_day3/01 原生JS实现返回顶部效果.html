@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 原生JS实现返回顶部效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .go-top {
+      position: fixed;
+      right: 30px;
+      bottom: 10px;
+      width: 100px;
+      height: 180px;
+      display: none;
+      background: url(./images/huojian1.jpg) no-repeat;
+    }
+
+    .content {
+      margin-left: 17%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 占位图 -->
+  <div class="content">
+    <img src="images/0.jpg" alt="image">
+    <img src="images/1.jpg" alt="image">
+    <img src="images/2.jpg" alt="image">
+    <img src="images/3.jpg" alt="image">
+    <img src="images/4.jpg" alt="image">
+    <img src="images/5.jpg" alt="image">
+    <img src="images/6.jpg" alt="image">
+    <img src="images/0.jpg" alt="image">
+    <img src="images/1.jpg" alt="image">
+    <img src="images/2.jpg" alt="image">
+    <img src="images/3.jpg" alt="image">
+    <img src="images/4.jpg" alt="image">
+    <img src="images/5.jpg" alt="image">
+    <img src="images/6.jpg" alt="image">
+  </div>
+  <!-- 回到顶部按钮 需要用到固定定位哦！-->
+  <a id="go-top" class="go-top" href="javacript:void(0);"></a>
+
+</body>
+<script>
+  // 获取回到顶部DOM
+  var goTop = document.getElementById('go-top')
+  // 获取可视区的高度
+  var clientHeight = document.documentElement.clientHeight;
+  // 设置一个计数器
+  var timer = null;
+  // 设置一个标识位，用于判断是否到达了顶端
+  var isTop = true;
+  window.onscroll = function () {
+    // 获取滚动条的位置
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // 滚动条位置大于可视区高度时，显示回到顶部按钮，否则就隐藏
+    if (scrollTop >= clientHeight) {
+      goTop.style.display = 'block';
+    } else {
+      goTop.style.display = 'none';
+    }
+    // 没在顶部就切换为第一张图
+    if (!isTop) {
+      goTop.style.background = 'url(./images/huojian1.jpg) no-repeat';
+      // 清空缓存
+      clearInterval(timer)
+    } isTop = false;
+    goTop.onclick = function () {
+      // 计时器的目的是为了实现缓动效果
+      timer = setInterval(function () {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        // 设置速度
+        var speed = Math.floor(- scrollTop / 6)
+        document.documentElement.scrollTop = document.body.scrollTop = scrollTop + speed;
+        // 滚动时切换为第二张图
+        goTop.style.background = 'url(./images/huojian2.jpg) no-repeat'
+        isTop = true;
+        if (scrollTop == 0) {
+          clearInterval(timer);
+          isTop = true;
+        }
+      }, 50)
+
+    }
+  }
+
+</script>
+
+</html>
