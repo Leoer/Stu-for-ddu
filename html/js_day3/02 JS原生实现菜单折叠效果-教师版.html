@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>手风琴效果菜单</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .menu{
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      margin: 50px auto;
+      box-shadow: 2px 2px 5px #333;
+    }
+    .menu h3{
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .menu p{
+      /* height: 0; */
+      text-indent: 2em;
+      line-height: 1.5em;
+      background-color: #ccc;
+      padding: 10px;
+      display: none;
+      overflow: hidden;
+    }
+    .menu li:first-of-type p{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li>
+      <h3>HTML</h3>
+      <p>超文本标记语言，标准通用标记语言下的一个应用。 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。 超文本标记语言的结构包括“头”部分、和“主体”部分，其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+    </li>
+    <li>
+      <h3>CSS</h3>
+      <p>层叠样式表(英文全称:Cascading Style Sheets)是一种用来表现HTML(标准通用标记语言的一个应用)或XML(标准通用标记语言的一个子集)等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+    </li>
+    <li>
+      <h3>JS</h3>
+      <p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。</p>
+    </li>
+    <li>
+      <h3>JQ</h3>
+      <p>jQuery是一个快速、简洁的JavaScript框架。jQuery设计的宗旨是"write Less，Do More"。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+    </li>
+  </ul>
+</body>
+<script>
+  var titles = document.getElementsByTagName('h3');
+  var texts = document.getElementsByTagName('p');
+
+  // 因为for先于回调函数（异步）执行完，如果在回调函数中获取i的值，将得到的是for循环完了之后的值
+  /* for(var i=0;i<titles.length;i++){ 
+    titles[i].onclick = function(){
+      for(var j=0;j<texts.length;j++){
+        if(j == i){
+          texts[j].style.display = 'block';
+        }else{
+          texts[j].style.display = 'none';
+        }
+      }
+    }
+  }   */
+  // 上面代码是不可行的
+  
+  // 方法一：将for中的var改成let，let有闭包的作用（let属于ES6写法）
+  /* for(let i=0;i<titles.length;i++){ 
+    titles[i].onclick = function(){
+      for(let j=0;j<texts.length;j++){
+        if(j == i){
+          texts[j].style.display = 'block';
+        }else{
+          texts[j].style.display = 'none';
+        }
+      }
+    }
+  } */
+
+  // 方法二：用JS闭包实现  
+  for(var i=0;i<titles.length;i++){ 
+    (function(i){
+      titles[i].onclick = function(){
+      for(var j=0;j<texts.length;j++){
+        if(j == i){
+          texts[j].style.display = 'block';
+        }else{
+          texts[j].style.display = 'none';
+        }
+      }
+    }
+    })(i)
+  }
+
+  /* 
+    (function(){
+      ...
+    })()为自执行函数（函数自身调用自身），也可以叫立即执行函数（IIFE）
+  */
+</script>
+</html>
