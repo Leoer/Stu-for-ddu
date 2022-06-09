@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .img-list{
+      width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="img-list">
+    <img class="lazy" data-original="images/0.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/1.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/2.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/3.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/4.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/5.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/6.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/0.jpg" width="600px" height="400px">
+    <img class="lazy" data-original="images/1.jpg" width="600px" height="400px">
+  </div>
+</body>
+<!-- 必须先引入JQ -->
+<script src="jquery-1.11.0.min.js"></script> 
+<script src="jquery.lazyload.js"></script>
+<script>
+  $("img.lazy").lazyload({
+    effect: "fadeIn", // 载入使用何种效果
+      // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+    threshold: 20, // 提前开始加载
+      // threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉
+  });
+</script>
+</html>

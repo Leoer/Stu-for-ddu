@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择水果</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .select{
+      width: 460px;
+      margin: 50px auto 0;
+      overflow: hidden;
+    }
+    #sel1, #sel2{
+      width: 200px;
+      height: 400px;
+      background-color: #eee;
+      box-shadow: 2px 2px 5px #ccc;
+      float: left;
+      font: 20px/25px 微软雅黑色;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    .btns{
+      float: left;
+      margin-top: 120px;
+    }
+    .btns button{
+      width: 50px;
+      height: 30px;
+      display: block;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="select">
+    <select id="sel1" multiple size="10">
+      <option value="香蕉">香蕉</option>
+      <option value="苹果">苹果</option>
+      <option value="鸭梨">鸭梨</option>
+      <option value="橘子">橘子</option>
+    </select>
+    <div class="btns">
+      <button>&gt;</button>
+      <button>&gt;&gt;</button>
+      <button>&lt;</button>
+      <button>&lt;&lt;</button>
+    </div>
+    <select id="sel2" multiple size="10"></select>
+  </div>
+</body>
+<script>
+  var sel1 = document.getElementById('sel1');
+  var sel2 = document.getElementById('sel2');
+  var btns = document.getElementsByTagName('button');
+
+  // 将左边选中的内容添加到右侧
+  /* btns[0].onclick = function(){
+    var opts = sel1.children;
+    // console.log(opts)
+    for(var i=0;i<opts.length;i++){
+      if(opts[i].selected){
+        sel2.appendChild(opts[i])
+      }
+    }
+  } */
+
+  btns[0].onclick = function(){
+    fn1(sel1,sel2);
+  }
+
+  // 将右边选中的内容添加到左侧
+  /* btns[2].onclick = function(){
+    var opts = sel2.children;
+    for(var i=0;i<opts.length;i++){
+      if(opts[i].selected){
+        sel1.appendChild(opts[i])
+      }
+    }
+  } */
+
+  // 将左侧内容全部移到右侧
+  btns[1].onclick = function(){
+    fn2(sel1, sel2);
+  }
+
+
+  // 将右侧内容全部移到左侧
+  btns[3].onclick = function(){
+    fn2(sel2, sel1);
+  }
+
+
+  btns[2].onclick = function(){
+    fn1(sel2, sel1);
+  }
+
+  function fn1(sel1,sel2){
+    var opts = sel1.children;
+    for(var i=0;i<opts.length;i++){
+      if(opts[i].selected){
+        sel2.appendChild(opts[i])
+      }
+    }
+  }
+
+  function fn2(sel1, sel2){
+    var opts = sel1.children;
+    for(var j=0;j<opts.length;j++){
+      sel2.appendChild(opts[j]);
+      j--;
+    }
+  }
+</script>
+</html>

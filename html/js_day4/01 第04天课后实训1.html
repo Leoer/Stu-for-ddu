@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 呆呆是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。请写出从这段描述可以得到的对象。
+    function Dog(name){
+      this.name = name;
+      this.wow = function(){
+        alert('wow~~~')
+      }
+    }
+
+    Dog.prototype.yelp = function(){
+      alert('yelp~~~')
+    }
+
+    var dog = new Dog('呆呆');
+
+    dog.wow();
+    dog.yelp();
+  </script>
+</body>
+</html>
