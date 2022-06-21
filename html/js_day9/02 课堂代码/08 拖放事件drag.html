@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      overflow: hidden;
+    }
+    .box1, .box2{
+      width: 157px;
+      height: 230px;
+      border: 1px solid #999;
+      padding: 10px;
+      float: left;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1">
+      <img draggable="true" id="img" src="images/test.jpg" alt="drag">
+    </div>
+    <div class="box2"></div>
+  </div>
+</body>
+<script>
+  var box1 = document.querySelector('.box1')
+  var box2 = document.querySelector('.box2')
+  var img = document.querySelector('img')
+
+  /* box1.ondragover = function(e){
+    e.preventDefault();
+  } */
+  img.ondragstart = function(e){
+    console.log(e)
+    console.log(e.target.id)
+
+    // 将拖拽的目标对象存入dataTransfer中
+    e.dataTransfer.setData('imgTarget', e.target.id)
+    
+    // console.log(e.dataTransfer.getData('imgTarget')) // 获取存入在dataTransfer中的数据
+  }
+
+  box2.ondragover = function(e){
+    e.preventDefault();
+  }
+  box2.ondrop = function(e){ // 要让ondrop发挥作用，必须在ondragover事件中进行默认形为的阻止
+    this.appendChild(document.getElementById(e.dataTransfer.getData('imgTarget')))
+  }
+</script>
+</html>

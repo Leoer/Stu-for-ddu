@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制圆弧</title>
+    <style>
+        #cv {
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cv" width="400" height="400">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if (cv.getContext) {
+        var ctx = cv.getContext('2d');
+        for (var i = 0; i < 4; i++) { // 行
+            for (var j = 0; j < 3; j++) { // 列
+                ctx.beginPath();
+                var x = 25 + j * 50; // x坐标
+                var y = 25 + i * 50; // y坐标
+                var radius = 20; // 半径
+                var start = 0;
+                var end = Math.PI + j * Math.PI / 2;
+                var direction = i % 2 === 0 ? false : true;
+                ctx.arc(x, y, radius, start, end, direction);
+                if( i <= 1){
+                    ctx.stroke();
+                }else {
+                    ctx.fill();
+                }
+            }
+        }
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+
+</html>

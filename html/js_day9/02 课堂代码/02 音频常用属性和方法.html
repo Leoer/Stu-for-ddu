@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="history.go(-1)">返回</button>
+  <button id="audio">操控音频</button>
+  <button>播放</button>
+  <button>暂停</button>
+  <audio id="media" controls autoplay>
+    <source src="sources/Itsok.mp3" type="audio/mp3">
+    <!-- <source src="sources/Itsok.ogg" type="audio/ogg">
+    <source src="sources/Itsok.webm" type="audio/webm"> -->
+  </audio>
+</body>
+<script>
+  var audio = document.querySelector('#audio'),
+      media = document.querySelector('#media');
+
+  audio.onclick = function(){
+    console.log(media.buffered.length)
+    console.log(media.buffered.start(0))
+    console.log(media.currentSrc)
+    console.log(media.currentTime)
+    console.log(media.ended)
+    console.log(media.duration)
+    console.log(media.networkState) 
+    console.log(media.paused) 
+
+    console.log(media.canPlayType('audio/mp3')) // 返回'probable'：浏览器最可能支持该类型
+  }
+
+  // 播放
+  document.querySelectorAll('button')[1].onclick = function(){
+    media.play()
+  }
+
+  // 暂停
+  document.querySelectorAll('button')[2].onclick = function(){
+    media.pause()
+  }
+</script>
+</html>

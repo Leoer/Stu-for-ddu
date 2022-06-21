@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var student = {
+      sno: '0001222',
+      sname: '王老五',
+      sex: '男',
+      tel: null,
+      score: [89,98,90,78],
+      course: {
+        cid: '001',
+        cname: 'H5网页设计'
+      }
+    }
+
+    // 封装深克隆的方法
+    function deepCloneObj(data){
+      var newData = data.constructor === Array ? [] : {}
+
+      for(var key in data){
+        // 判断值是否为null，因为null的类型是'object'
+        if(data[key] === null){
+          newData[key] = null
+        }else{
+          // 判断是否为引用类型
+          if(typeof data[key] === 'object'){ // 如果是引用类型的数据用深拷贝
+            newData[key] = deepCloneObj(data[key])
+          }else{ // 如果是基本类型的数据用浅拷贝
+            newData[key] = data[key]
+          }
+        }
+      }
+      
+      return newData;
+    }
+
+    var newStudent = deepCloneObj(student);
+    console.log(newStudent);
+
+    newStudent.score.push(88)
+    newStudent.sname = '侯先生'
+    console.log('克隆过来的对象', newStudent)
+    console.log('原对象的数据', student)
+  </script>
+</body>
+</html>

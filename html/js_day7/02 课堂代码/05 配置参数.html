@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>这是测试内容。</p>
+</body>
+<script src="./jquery.js"></script>
+<script src="./jquery.setattr.js"></script>
+<script>
+  /* 
+    问题：如果传参过多，在调用时可能将其参数位置写错。
+    解决上面这个问题的办法是：
+      把参数写成与顺序无关的对象形式。
+  */
+  // $('p').setAttr('400px','200px','20px','#f00','#0ff');
+
+  /* $('p').setAttr({
+    color:'#f00',
+    width:'400px',
+    fontSize:'20px',
+    background:'#0ff',
+    height:'200px'
+  }); */
+
+
+  // 问题：如果用户在使用这个插件时，不传参或少传参，这时怎么办？
+  // $('p').setAttr()
+  // $('p').setAttr({background:'olive'})
+  $('p').setAttr({width:'600px',fontSize:'30px',background:'olive'})
+</script>
+</html>

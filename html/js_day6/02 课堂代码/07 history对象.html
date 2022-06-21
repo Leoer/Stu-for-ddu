@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>这是首页</p>
+  <button onclick="toNext()">href</button>
+  <button onclick="forwardPage()">forward</button>
+  <button onclick="goPage()">go</button>
+  <script>
+    console.log(history)
+    function toNext(){
+      // location.href = './test1.html'  // 将跳转的url写入到history
+      location.replace('./test1.html')  // 跳转的url不会写入到history，执行的是url的替换
+    }
+    function forwardPage(){
+      history.forward()
+    }
+    function goPage(){
+      history.go(1)
+    }
+  </script>
+</body>
+</html>

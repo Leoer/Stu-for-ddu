@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="toBaidu()">百度</button>
+  <script>
+    console.log(location)
+    /* // location.assign()：加载新页面文档
+    function toBaidu(){
+      // location.assign('https://baidu.com')
+      location.href = 'https://baidu.com'
+    } */
+
+    // location.reload()：重新加载（刷新）当前页面
+    // location.reload()
+
+    // location.replace()：用新的文档替代当前文档
+    function toBaidu(){
+      // location.assign('https://baidu.com')
+      location.replace('https://baidu.com')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name,age){
+      this.name = name
+      this.age = age
+    }
+
+    Person.prototype.sex = '男'
+    Person.prototype.work = function(workType){
+      console.log(this.name + '的工作是：' + workType)
+    }
+    
+    var p1 = new Person('Bill', 45);
+    var obj = new Object()
+    var p2 = p1;
+
+    console.dir(obj)
+    /* 2.1 isPrototypeOf
+    用于指示对象是否存在于另一个对象的原型链中。如果存在，返回 true ，否则返回 false 。 */
+    console.log(Person.prototype.isPrototypeOf(p1))
+    console.log(Person.prototype.isPrototypeOf(obj))
+    console.log(Person.prototype.isPrototypeOf(p2))
+
+  /* 2.2 hasOwnProperty
+    每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性（私有的），还是继承自prototype
+对象的属性。 */
+console.log(p1.hasOwnProperty('name')) // true
+console.log(p1.hasOwnProperty('sex')) // false  sex属性是通过原型继承过来的
+
+  /* 2.3 getOwnPropertyDescriptor
+    getOwnPropertyDescriptor用来获取对象属性的描述信息，其中包括属性的value(值)、writable(是否可写)、
+configurable(是否可设置)、enumerable(是否可枚举)。
+  
+    注意：必须通过Object对象调用。 */
+    console.log(Object.getOwnPropertyDescriptor(p1,'name')) // {value: "Bill", writable: true, enumerable: true, configurable: true}
+    console.log(Object.getOwnPropertyDescriptor(p1,'sex')) // undefined  sex为非私有属性，不能获取对应的描述
+
+ /*  2.4 defineProperty
+    用来修改对象属性的描述信息。 */
+    console.log(p1)
+    Object.defineProperty(p1,'name',{
+      configurable: false,
+      writable: false,
+      enumerable: true,
+      value: '张飞',
+    })
+   
+    console.log(p1)
+    for(var i in p1){
+      console.log(p1[i])
+    }
+  /* 2.5 propertyIsEnumerable
+    用来判断改对象的属性是否可以用for...in枚举（遍历）。 */
+
+    console.log(p1.propertyIsEnumerable('name'))
+  </script>
+</body>
+</html>

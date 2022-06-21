@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Foo(){
+       getName = function(){console.log(1);};  // 因为此方法不是用var定义的，前面也没this，实际上它是一个全局的方法，它的对象是window
+      //  console.log(this)
+       return this; // this指向window
+    }
+    Foo.getName = function(){console.log(2);}; // 在构造函数上挂了一个方法
+    Foo.prototype.getName = function(){console.log(3);};  // 通过原型向构造函数添加共享的方法
+    var getName = function(){console.log(4);}; // 定义了一个全局的变量
+    function getName(){console.log(5);} // 定义了一个全局的方法（函数）
+
+    Foo.getName(); //  2
+    getName(); // 4 当全局方法与变量同名时，方法会提升到变量之前
+    Foo().getName();  // 1 Foo()的优先级高于getName(),Foo()返回的结果this指向的是window
+    getName(); // 1  因为上一行代码已经改变了this的指向，所以这里的getName()也是全局的方法
+    new Foo.getName(); // 2 .优先级高于new 
+    new Foo().getName(); // 3 new Foo()高于new Foo
+    new new Foo().getName();  // 3 与上一行代码类似
+  </script>
+</body>
+</html>

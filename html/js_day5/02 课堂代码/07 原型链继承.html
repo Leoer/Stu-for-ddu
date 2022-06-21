@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 父类原型
+    function Person(){}
+    Person.prototype.type = '中国人'
+    Person.prototype.eat = function(){
+      console.log(this.type + '喜欢吃中餐！')
+    }
+
+    // 子类
+    function Teacher(){}
+    // 子类继承父类原型
+    Teacher.prototype = new Person()
+
+    // 让子类拥有自己的属性和方法
+    Teacher.prototype.name = '侯教授'
+    Teacher.prototype.teach = function(course){
+      console.log(this.name + '主讲' + course)
+    }
+    var t1 = new Teacher()
+
+    Person.prototype.sex = '男'
+    console.log(t1)
+    t1.teach('思修')
+
+  </script>
+</body>
+</html>
