@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // location.hash 设置或取得 URL 中的锚
+    console.log(location.hash)
+    // location.host 设置或取得 URL 中主机（包括端口号）
+    // location.hostname 设置或取得 URL 中的主机名
+    // location.href 设置或取得完整 URL（页面重定向应用）
+    // location.pathname 设置或取得 URL 中的路径
+    // location.port 设置或取得 URL 中的端口号
+    // location.protocol 设置或取得 URL 使用的协议
+    // location.search 设置或取得 URL 中的查询字串（一般是 ? 符号后面的内容）
+    var x = location
+    console.log('host:',x.host,'hostname:',x.hostname,'href:',x.href,'pathname:',x.pathname,'port:',x.port)
+    console.log('protocol:',x.protocol,'search:',x.search)
+
+
+    var url = 'http://192.168.0.103:8080/A7.html?username=zhangsan&sex=male#/classic/type'
+  </script>
+</body>
+</html>

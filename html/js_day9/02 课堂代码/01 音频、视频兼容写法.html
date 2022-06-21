@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 音频 -->
+  <audio id="audio" src="sources/Itsok.mp3" autoplay="autoplay" controls>
+    您的浏览器不支持audio。
+  </audio>
+
+  <!-- 视频 -->
+  <video src="sources/trailer.mp4" controls autoplay>
+    您的浏览器不支持video。
+  </video>
+</body>
+<script>
+  onload = function(){
+    document.getElementById('audio').loop = 'loop'
+    // document.getElementById('audio').setAttribute('loop','loop')
+  }  
+</script>
+</html>

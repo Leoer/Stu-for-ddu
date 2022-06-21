@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>音乐播放器</title>
+    <link rel="shortcut icon" href="https://www.bootcdn.cn/assets/ico/favicon.ico?1595104474659" type="image/x-icon">
+    <link rel="stylesheet" href="style/css.css" />
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/play.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h2>我爱音乐</h2>
+      <ul class="music"></ul>
+      <div class="singWord">热爱歌词，热爱音乐！</div>
+      <div class="audio" id="audio">
+        <div class="progressLine">
+          <div class="progress">
+            <p></p>
+          </div>
+          <span class="curTime">00:00</span>
+          <span class="allTime">00:00</span>
+        </div>
+        <audio id="player" src=""></audio>
+        <div class="controls">
+          <button class="prev"></button>
+          <button class="btn"></button>
+          <button class="next"></button>
+        </div>
+        <div class="contrl">
+          <div class="vol">
+            <em></em>
+            <a>
+              <span id="volLine">
+                <i></i>
+              </span>
+            </a>
+            <b>10%</b>
+          </div>
+          <div class="loop loopAll">全部循环</div>
+          <div class="loop loopSigle">单曲循环</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

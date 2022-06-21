@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button onclick="opAttr()">操控视频属性</button>
+    <button>播放</button>
+    <button>暂停</button>
+  </div>  
+  
+  <!-- 加载视频 -->
+  <video controls loop autoplay width="400" height="300">
+    <source src="sources/trailer.mp4" type="video/mp4">
+    <source src="sources/trailer.ogg" type="video/ogg">
+    <source src="sources/trailer.mpeg" type="video/mpeg">
+  </video>
+</body>
+<script>
+  var video = document.querySelector('video')
+
+  // 播放
+  document.querySelectorAll('button')[1].onclick = function(){
+    video.play()
+  }
+
+  // 暂停
+  document.querySelectorAll('button')[2].onclick = function(){
+    video.pause()
+  }
+
+  function opAttr(){
+    /* // Media.currentTime = value; 当前播放的位置，赋值可改变位置（以秒计）
+    video.currentTime = 5;
+    console.log(video.currentTime) */
+
+    // Media.startTime; 一般为0，如果为流媒体或者不从0开始的资源，则不为0
+    // Media.duration; 当前资源长度 流返回无限
+    // Media.paused; 是否暂停
+    // Media.defaultPlaybackRate = value; 默认的回放速度，可以设置，默认1.0
+    //video.defaultPlaybackRate = 5.0
+
+    // Media.playbackRate = value; 当前播放速度，设置后马上改变，默认1.0
+    //video.playbackRate = 5.0
+
+    // Media.played; 返回已经播放的区域，
+    console.log(video.played)
+
+    // Media.seekable; 返回可以seek的区域 TimeRanges
+    // Media.ended; 是否结束
+    // Media.autoPlay; 是否自动播放
+    // Media.loop; 是否循环播放
+    // Media.controls 是否有默认控制条
+    // Media.volume 音量0.1~1.0
+    video.volume = .1
+    console.log(video.volume)
+    
+    // Media.muted 静音，true|false
+    video.muted = true
+  }
+</script>
+</html>

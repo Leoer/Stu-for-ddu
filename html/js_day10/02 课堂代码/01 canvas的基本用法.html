@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas{
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas的宽高最好通过属性设置，而是不是通过CSS实现。 -->
+    <!-- <canvas id="canvas" width="400" height="300"></canvas> -->
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.querySelector('#canvas');
+    // 渲染上下文
+    var ctx = canvas.getContext('2d');// 2d表示绘制的是2d图形，webgl表示绘制的是3d图形
+    console.log(ctx);
+</script>
+</html>

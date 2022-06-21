@@ -1,0 +1,100 @@
+1.认识canvas
+    canvas是H5新增的一个标签。它的作用是在浏览器上创建一个画布，用来绘画。
+2.使用场景
+    1）简单游戏的开发；
+    2）简单图像；
+    3）验证码；
+    4）绘制图表；
+    5）绘制地图；
+    6）制作马赛克效果；
+    7）模拟帧动画等。
+3.基本用法
+    <canvas id="canvas"></canvas>
+
+    var canvas = document.querySelector('#canvas');
+    // 渲染上下文
+    var ctx = canvas.getContext('2d');// 2d表示绘制的是2d图形，webgl表示绘制的是3d图形
+4.兼容处理
+    <canvas id="cv" width="300" height="300">您的浏览器不支持canvas</canvas>
+
+    var cv = document.getElementById('cv');
+    if(cv.getContext){
+        // 绘图代码处
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+5.canvas与svg的区别（了解）
+    Canvas
+        1）依赖分辨率
+        2）不支持事件处理器
+        3）弱的文本渲染能力
+        4）能够以 .png 或 .jpg 格式保存结果图像
+        5）最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+    SVG
+        1）不依赖分辨率
+        2）支持事件处理器
+        3）最适合带有大型渲染区域的应用程序（比如谷歌地图）
+        4）复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+        5）不适合游戏应用
+6.canvas常用方法
+    6-1 绘制路径
+        绘制路径方法：
+            1）首先，你需要创建路径起始点。
+            2）然后你使用画图命令去画出路径。
+            3）之后你把路径封闭。
+            4）一旦路径生成，你就能通过描边或填充路径区域来渲染图形。
+        
+        beginPath():开启一条路径，或重置当前路径
+        closePath():创建从当前点回到起始点的路径
+        ctx.moveTo(x,y):移动笔触(x,y表示坐标)
+        ctx.stroke():描边
+
+    6-2 绘制直线
+        lineTo(x,y)：绘制一条从x到y的直线。
+    
+    6-3 绘制圆弧
+        ctx.arc(圆心x坐标,圆心y坐标,半径,圆起始角（弧度）,圆终止角（弧度）,true(逆时针)/false(顺时针))
+
+    6-4 贝塞尔曲线（了解）
+        二次贝塞尔曲线（由三个点组成）：
+            quadraticCurveTo(cp1x, cp1y, x, y)//绘制二次贝塞尔曲线（调整方向和线的弧度），cp1x,cp1y为一个控制点，x,y为结束点。
+
+        三次贝塞尔曲线（由四个点组成）：
+            bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+
+            说明：cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+
+    6-5 绘制矩形
+        fillRect(x, y, width, height)   // 绘制一个填充的矩形
+        strokeRect(x, y, width, height) // 绘制一个矩形的边框
+        clearRect(x, y, width, height)  // 清除指定矩形区域，让清除部分完全透明。通常与fillRect()结合使用，可以绘制镂空效果或执行删除效果。
+        
+    6-6 绘制文本
+        fillText(文本内容,x坐标,y坐标[,最大宽度]); // 绘制填充文本
+        strokeText(文本内容,x坐标,y坐标[,最大宽度]); // 绘制空心文本
+
+    6-7 绘制图像
+        支持.png,.jpg,.gif以及canvas源。
+
+        第一步：
+            var img = new Image(); // 创建一个img标签
+        第二步：
+            img.src = '图片源'; // 设置图片源地址
+        第三步：
+            img.onload = function(){
+                ctx.drawImage(img, 100,100) // 绘制图像
+            }
+
+        1）基本绘制
+            ctx.drawImage(img, x,y); // img表示要绘制的图像，x和y表示图像绘制的起始坐标
+        2）绘制时同时进行缩放
+            ctx.drawImage(img, x,y,width,height); // width表示缩放后的宽度，height为高度
+        3）生成切片
+            ctx.drawImage(img,sx,sy,swidth,sheight,dx,dy,dwidth,dheight);
+
+            sx,sy,swidth,sheight:用于对源图形成切片，多余部分会被裁切掉；
+            dx,dy,dwidth,dheight：表示切片在canvas画布中绘制的位置及大小。
+
+    6-8 其他
+        save():保存环境状态
+        restore():恢复到上一个保存的状态点

@@ -1,0 +1,85 @@
+1.什么是框架？什么是JS框架（库）？
+  框架就一个可复用的设计构件，它规定了应用的体系结构，阐明了整个设计、协作构件之间的依赖关系、责任分配和控制流程，
+表现为一组抽象类（构造函数）以及其实例之间协作方法，它为构件复用提供了上下文关系。
+  简单地说，框架就是一套比较完备的体系结构。
+
+  JS框架就是对JS各种功能的封装和抽象，使得在使用的时候具有简便性和更好的兼容性，并且可以扩展框架的内容。
+
+2.框架开发
+  2.1 代码写在自执行函数中（闭包写法）（IIFE）
+    目的：为了避免变量的全局污染。
+
+    语法格式：
+      ;(function(global){
+        // 核心代码
+      })(typeof window === 'undefined' ? window : this); // typeof返回的是字符串
+
+  2.2 暴露统一的接口
+    暴露统一的接口，目的是为了方便用户的记忆，减少污染外部变量的几率，简化操作。
+    这个统一的接口，又可以叫做命名空间，给一个封闭的代码空间命名，就可以通过这个名字来找到里面的内容。
+
+    语法格式：
+      ;(function(global){  
+        'use strict';
+        var framework = function(){
+          // 核心代码
+        }
+        global.framework = framework
+      })(typeof window === 'undefined' ? window : this);
+
+  2.3 核心代码（模块）封装
+    1.创建函数，返回一个对象（这个对象上挂载的有这个框架中的属性和方法，最终需要暴露出去）
+      var myFramework = function () {
+        return new myFramework.core.init()
+      }
+    2.设置原型(为了后面方便操作原型对象，在这里用core代替原型对象)
+      myFramework.core = myFramework.prototype = {
+        version: '1.0.0',
+        constructor: myFramework,
+        myFramework: myFramework
+      }
+    3.创建myFramework对象的构造函数
+      var init = myFramework.core.init = function () {
+        // 功能实现的代码
+      }
+    4.让init和myFramework拥有共同原型对象
+      init.prototype = myFramework.core
+
+    5.在核心代码中添加操作DOM的代码
+      
+    6.拓展方法
+      // 为了便于扩展方法，添加extend来方便后续的操作
+      myFramework.extend = myFramework.core.extend = function (obj) {
+        for (var key in obj) {
+          this[key] = obj[key]
+        }
+      }
+
+      // 添加扩展方法
+      myFramework.core.extend({
+        first: function () {
+          return this[0]
+        },
+        last: function () {
+          return this[this.length - 1]
+        },
+        get: function (idx) {
+          return this[idx]
+        },
+        each: function (callback) {
+          for (var i = 0; i < this.length; i++){
+            callback(this[i],i,this)
+          }
+        }
+      })
+
+    7.扩展事件
+      myFramework.core.extend({
+      click: function (callback) {
+        this.each(function (item,index) {
+          item.onclick = function (event) {
+            callback(event)
+          }
+        })
+      }
+    })

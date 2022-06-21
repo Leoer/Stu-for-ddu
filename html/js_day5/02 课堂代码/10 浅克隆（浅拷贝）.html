@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* var student = {
+      sno: '0001222',
+      sname: '王老五',
+      sex: '男'
+    } */
+    var student = {
+      sno: '0001222',
+      sname: '王老五',
+      sex: '男',
+      score: [89,98,90,78]
+    }
+
+    // 封装浅克隆的方法
+    function cloneObj(obj){
+      var newObj = {}
+      for(var key in obj){
+        // console.log(key,obj[key])
+        newObj[key] = obj[key]
+      }
+      return newObj
+    }
+
+    var obj1 = cloneObj(student)
+    // console.log(obj1)
+
+    // 修改obj1这个克隆过来的数据
+    /* obj1.sname = '张三'
+    console.log('克隆过来的对象', obj1)
+    console.log('原对象的数据', student) */
+
+    // 以上代码说明克隆过来的对象的基本类型的数据的修改不会影响到原对象的数据
+
+    obj1.score.shift()
+    obj1.score.push(100)
+    console.log('克隆过来的对象', obj1)
+    console.log('原对象的数据', student)
+
+    // 如果用浅拷贝复制引用类型的数据，会出现修改被克隆对象的数据。
+
+    // 结论：浅拷贝只适合克隆基本类型的数据。
+  </script>
+</body>
+</html>

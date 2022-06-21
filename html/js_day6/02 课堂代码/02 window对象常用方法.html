@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" onclick="stop()" value="停止">
+
+  <a href="javascript:void(1);" onclick="jump()">百度</a>
+  <button onclick="scrollWin()">滚动到指定的位置</button>
+  <div style="width: 1200px;height: 1200px;"></div>
+  <script>
+    // alert() 显示一个警告框 
+    // window.alert('这是一个警告')
+
+    /* // confirm() 显示带有确认按钮和取消按钮的对话框 无
+    var isTrue = confirm('您真的要退出吗（Y/N）？')
+    console.log(isTrue)
+    if(isTrue){
+      window.close()
+    } */
+
+    // prompt() 显示可接受用户输入的对话框 无
+
+    /* var name = prompt('请输入您的姓名：'); 
+    console.log(name) */
+
+    // var price = prompt('请输入商品价格：',99.99); // 返回的是一个文本型数据
+    // var price = Number(prompt('请输入商品价格：',99.99));
+    // var price = parseInt(prompt('请输入商品价格：',99.99));
+    // var price = parseFloat(prompt('请输入商品价格：',99.99));
+    // var price = eval(prompt('请输入商品价格：',99.99)); // eval性能差，不建议用
+    // console.log(typeof price, price)
+
+    // setInterval() 按照指定的毫秒周期来调用函数或计算表达式 无
+   /*  var timer = null;
+    timer = setInterval(function(){
+      console.log('<p>' + new Date() +'</p')
+    },1000)
+
+    function stop(){
+      clearInterval(timer)
+    } */
+
+    // setTimeout() 在指定的毫秒数后调用函数或计算表达式 无
+    var timer1 = setTimeout(function(){
+      console.log('<p>' + new Date() +'</p')
+    },1000)
+    // clearInterval() 取消由 setInterval() 方法设置的 timeout 无
+    // clearTimeout() 取消由 setTimeout() 方法设置的 timeout 无
+
+
+    // close() 关闭浏览器窗口 无
+    // open() 打开一个新的浏览器窗口或查找一个已命名的窗口 无
+    function jump(){
+      /* open('https://baidu.com','百度','')
+      open('https://sina.com.cn','百度','') */
+
+      // open('https://baidu.com','百度','')
+      // open('https://sina.com.cn','新浪','')
+
+      // open('https://sina.com.cn','_blank','')
+      // open('https://sina.com.cn','_self','')
+      // open('https://sina.com.cn','','width=400,height=400')
+      open('https://sina.com.cn','_self','',false)
+    }
+    // scrollTo() 把内容滚动到指定的坐标 无
+    function scrollWin(){
+      scrollTo(100,400)
+    }
+      // 
+  </script>
+</body>
+</html>

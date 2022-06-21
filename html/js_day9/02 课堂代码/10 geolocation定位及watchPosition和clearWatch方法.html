@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="stopPositon()">停止定位</button>
+</body>
+<script>
+  var options = {
+    timeout: 5000,
+    enableHighAccuracy:true
+  }
+
+  if(navigator.geolocation){
+    // 跟踪用户的位置
+    navigator.geolocation.watchPosition(success,error,options)
+  }else{
+    console.log('该浏览器不支持定位！')
+  }
+
+  function success(info){
+    console.log(info) 
+    console.log(info.coords.latitude) // 纬度
+    console.log(info.coords.longitude) // 经度
+  }
+
+  function error(err){
+    console.log(err.message)
+  }  
+
+  var watcher = navigator.geolocation.watchPosition(success,error,options)
+  // 停止跟踪用户的位置
+  function stopPositon(){
+    navigator.geolocation.clearWatch(watcher)
+  }  
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制矩形</title>
+    <style>
+        #cv {
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cv" width="300" height="300">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if (cv.getContext) {
+        var ctx = cv.getContext('2d');
+        ctx.fillRect(100,100,100,100);
+        // ctx.strokeRect(50,100,150,100);
+        ctx.clearRect(120,120,50,50)
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+
+</html>

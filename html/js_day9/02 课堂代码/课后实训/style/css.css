@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#container{
+    width: 350px;
+    height: 590px;
+    margin: 20px auto;
+    background-color: #eee;
+    padding: 10px 0;
+}
+#container h2{
+    line-height: 40px;
+    text-align: center;
+}
+#container ul{
+    width: 85%;
+    height:370px;
+    display: block;
+    margin: 0 auto;
+    overflow-y: scroll;
+    padding: 5px 10px;
+    border: 3px solid #ffea73;
+}
+#container ul li{
+    line-height:30px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    padding: 0 5px;
+}
+#container ul li.on,#container ul li:hover{
+    color: red;
+    font-weight: bold;
+    background-color: yellow;
+    border:none;
+}
+#container .singWord{
+    text-align: center;
+    margin-top: 20px;
+}
+.progressLine{
+    position: relative;
+}
+#container  .progress{
+    width: 70%;
+    height: 8px;
+    background-color: blue;
+    border-radius: 4px;
+    margin: 20px auto 15px;
+    position:relative;
+    cursor: pointer;
+}
+#container  .progressLine  span{
+    display: block;
+    position: absolute;
+    top:-6px;
+}
+#container .progressLine span.allTime{
+    right:5px;
+}
+#container .progressLine span.curTime{
+    left: 5px;
+    color: red;
+}
+#container .progress p{
+    position: absolute;
+    height: 8px;
+    background-color: yellow;
+    border-radius:2px;
+    left: 0;
+    top: 0;
+    width:0;
+    max-height:245px;
+    cursor: pointer;
+}
+#container .controls{
+    text-align: center;
+}
+#container .controls button{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    position: relative;
+    top:-8px;
+    cursor: pointer;
+}
+#container .controls button.btn{
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+    top:-5px;
+    background-image: url(img/plause.png);
+    background-position: center center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+#container .controls button.play{
+    background-image: url(img/play.png);
+    background-position: center center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+#container .controls button.prev{
+    background-image: url(img/prev.png);
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+#container .controls button.next{
+    background-image: url(img/next.png);
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+#container .contrl .vol{
+    width: 65px;
+    margin-left:50px;
+    position: relative;
+    float: left;
+}
+#container .contrl .vol em{
+    display:block;
+    width: 30px;
+    height: 30px;
+    background-image: url(img/vol.png);
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+}
+#container .contrl .vol:hover em{
+    background-color: #999;
+}
+#container .contrl .vol em.on{
+    background-image: url(img/vol_on.png);
+}
+#container .contrl .vol:hover a{
+    display: block;
+    background-color: #999;
+}
+#container .contrl .vol a{
+    display: none;
+    position: absolute;
+    left: 0;
+    top:-100px;
+    width: 30px;
+    height: 100px;
+    background-color: #999;
+}
+#container .contrl .vol a span{
+    display: block;
+    width: 10px;
+    height: 90px;
+    margin:5px auto;
+    border-radius:5px;
+    background-color: blue;
+    position: relative;
+    cursor: pointer;
+}
+#container .contrl .vol a span i{
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 10px;
+    height: 20%;
+    background-color: yellow;
+    border-radius: 4px;
+}
+#container .contrl .vol b{
+   display: block;
+   float: left;
+    line-height: 30px;
+}
+#container .contrl .loopAll{
+    float: left;
+    width: 60px;
+    height: 30px;
+    padding-left:25px;
+    margin-left:35px;
+    line-height: 30px;
+    font-size: 14px;
+    background-image: url(img/all.png);
+    background-position: left 8px;
+    background-size: 20px 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#container .contrl .loopAll.on{
+    background-image: url(img/all_on.png);
+    color: blue;
+}
+#container .contrl .loopSigle{
+    float: left;
+    width: 60px;
+    height: 30px;
+    padding-left:25px;
+    margin-left: 20px;
+    line-height: 30px;
+    font-size: 14px;
+    background-image: url(img/single.png);
+    background-position: left 5px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#container .contrl .loopSigle.on{
+    background-image: url(img/single_on.png);
+    color: blue;
+}

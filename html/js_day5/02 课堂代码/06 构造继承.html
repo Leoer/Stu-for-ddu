@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* // call
+    // 定义父类
+    function Person(name, sex){
+      this.name = name
+      this.sex = sex
+      this.eat = function(){
+        return this.name + '最爱吃水果！'
+      }
+    }
+
+    // 定义子类
+    function Student(name, sex, age){
+      // 继承父类Person
+      Person.call(this, name, sex)
+
+      // 子类拥有自己的属性和方法
+      this.age = age
+      this.study = function(course){
+        return this.name + '最爱学习' + course
+      }
+    }
+
+    var stu1 = new Student('王二虎', '男', 19)
+    console.log(stu1)
+
+    console.log(stu1.eat())
+    console.log(stu1.study('H5开发')) */
+
+
+    
+    // apply
+    // 定义父类
+    function Person(name, sex){
+      this.name = name
+      this.sex = sex
+      this.eat = function(){
+        return this.name + '最爱吃水果！'
+      }
+    }
+    Person.prototype.addr = '广东深圳'  // 构造继承不能继承原型
+    // 定义子类
+    function Student(name, sex, age){
+      // 继承父类Person
+      Person.apply(this, [name, sex])
+
+      // 子类拥有自己的属性和方法
+      this.age = age
+      this.study = function(course){
+        return this.name + '最爱学习' + course
+      }
+    }
+
+    var stu1 = new Student('王二虎', '男', 19)
+    console.log(stu1)
+
+    console.log(stu1.eat())
+    console.log(stu1.study('H5开发'))
+  </script>
+</body>
+</html>

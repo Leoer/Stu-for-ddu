@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>这是Test1页面</p>
+  <!-- <button onclick="history.back()">返回</button> -->
+  <button onclick="history.go(-1)">返回</button>
+</body>
+<script>
+  console.log(history.length)
+
+  console.log()
+  if((navigator.userAgent).toLowerCase().indexOf('chrome') >= 0){
+    console.log('这是谷歌浏览器')
+  }else if((navigator.userAgent).toLowerCase().indexOf('trident') >= 0){
+    console.log('这是IE浏览器')
+  }else{
+    console.log('这是其它浏览器')
+  }
+</script>
+</html>
