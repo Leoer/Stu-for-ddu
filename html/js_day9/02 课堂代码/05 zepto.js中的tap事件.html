@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">box</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.js"></script>
+<script src="js/event.js"></script>
+<script src="js/touch.js"></script>
+<script>
+  /* console.dir($)
+
+  $('.box').click(function(){
+    console.log('click')
+  })
+
+
+  $('.box').tap(function(){
+    console.log('tap')
+  }) */
+
+  /* $('.box').singleTap(function(){
+    console.log('singleTap')
+    $(this).html('这是改变后的内容')
+  }) */
+  
+  /* $('.box').doubleTap(function(){
+    console.log('doubleTap')
+    $(this).css({
+      color: 'red',
+      textShadow: '2px 2px 6px #999'
+    })
+  }) */
+
+  $('.box').longTap(function(){
+    console.log('longTap')
+    $(this).css('fontSize','50px')
+  })
+</script>
+</html>

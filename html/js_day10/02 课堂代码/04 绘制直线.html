@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制直线</title>
+    <style>
+        #cv {
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cv" width="400" height="400">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if(cv.getContext){
+        var ctx = cv.getContext('2d');
+        // 画一个描边三角形
+        ctx.beginPath();// 开启路径绘制
+        ctx.moveTo(25, 25);
+        ctx.lineTo(105, 25);
+        ctx.lineTo(25, 105);
+        ctx.lineTo(25, 25);
+        ctx.stroke();
+
+        // 画一个填充三角形
+        ctx.beginPath();// 重置路径绘制
+        ctx.moveTo(125, 125);
+        ctx.lineTo(205, 125);
+        ctx.lineTo(125, 205);
+        ctx.fill();
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+</html>

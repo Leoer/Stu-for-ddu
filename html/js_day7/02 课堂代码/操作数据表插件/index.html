@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生信息表</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    .stu-info{
+      width: 600px;
+      margin: 50px auto 0;
+      text-align: center;
+    }
+    table{
+      width: 600px;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table tr{
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="stu-info">
+    <h1>学生信息表</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>家庭住址</th>
+          <th>联系方式</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="stus"></tbody>
+    </table>
+    <!-- <iframe src="stu.json" frameborder="0"></iframe> -->
+  </div>
+</body>
+<script src="../jquery.js"></script>
+<script src="./jquery.showdata.js"></script>
+<script>
+  // $('#stus').showData({url:'stu.json'})
+
+  /* $('iframe').on('load',function(){
+    // 通过contentDocument可以获取iframe中的document对象
+    console.log(JSON.parse($($('iframe')[0].contentDocument.body).text()));
+  })   */
+
+  // 设置默认值后的调用
+  // $('#stus').showData()
+
+  // 事件绑定 事件三要要素：事件源（事件对象）、事件名、回调函数（事件处理函数）
+  $('#stus').showData({
+    url: 'stu.json',
+    click: function(){
+      console.log($(this).text());
+    },
+    mouseover: function(){
+      $(this).css({
+        color: 'yellow',
+        background: 'olive'
+      })
+    },
+    mouseout: function(){
+      $(this).css({
+        color: '#000',
+        background: '#fff'
+      })
+    }
+  })
+</script>
+</html>

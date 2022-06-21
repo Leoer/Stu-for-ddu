@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="cv" width="300" height="300">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if(cv.getContext){
+        console.log('您的浏览器支持canvas!');
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+</html>

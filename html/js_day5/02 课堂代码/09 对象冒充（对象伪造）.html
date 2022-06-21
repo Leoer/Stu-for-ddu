@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 定义父类
+    function Person(name, sex){
+      this.name = name
+      this.sex = sex
+      this.fn = function(){
+        console.log('.......')
+      }
+    }
+    Person.prototype.addr = '广东深圳' 
+    Person.prototype.eat = function(){
+      console.log(this.name + '最爱吃水果！')
+    }
+
+    // 定义子类
+    function Student(name, sex, age){  
+      // 第一步：克隆父类构造器（原生）中的属性和方法
+      this.Person = Person
+      this.Person(name, sex)
+      delete this.Person
+
+      this.age = age
+      this.study = function(course){
+        console.log(this.name + '最爱学习' + course)
+      }
+    }
+
+    // 第二步：克隆父类原型中的属性和方法
+    // Student.prototype = Person.prototype // 问题：将Person的内存地址赋给了Student，它们将共享同一段内存空间
+    // 修改子类中的属性和方法会影响到父类（这种写法是不可取的）
+    // console.log(typeof Student.prototype)
+
+    // 解决上面的问题的方法如下：
+    for(var i in Person.prototype){
+      // console.log(Person.prototype[i])
+      Student.prototype[i] = Person.prototype[i]
+    }
+
+    Student.prototype.sports = function(){
+      console.log(this.name + '喜欢踢足球！')
+    }
+
+    // console.dir(new Person())
+    // console.dir(new Student())
+    var stu1 = new Student('王二虎', '男', 19)
+    console.log(stu1)
+    stu1.eat()
+    stu1.study('语文')
+
+    console.log(stu1 instanceof Student) // true
+    console.log(stu1 instanceof Person)  // false  说明Student不是从Person继承过来的
+  </script>
+</body>
+</html>

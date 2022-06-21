@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      width: 100%;
+      height: 667px;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">box</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.js"></script>
+<script src="js/touch.js"></script>
+<script>
+  /* document.querySelector('.box').onswipe(function(){
+    alert()
+  })
+  document.querySelector('.box').addEventListener('swipe',function(){
+    alert()
+  })  
+    // 上面写法都不会触发。
+  */
+
+  /* $('.box').swipe(function(){
+    $(this).css('fontSize','50px')
+  }) */
+
+  $(document).on('swipeRight',function(){
+    location.assign('./02 音频常用属性和方法.html')
+  })
+
+  $(document).on('swipeLeft',function(){
+    $('.box').css('background','red')
+  })
+
+  $(document).swipeUp(function(){
+    $('.box').html('<span>span</span>')
+  })
+
+  $(document).on('swipeDown',function(){
+    $('.box').css('color','#fff')
+  })
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /* // 判断当前浏览器是否支持定位
+  if(navigator.geolocation){
+    console.log('该浏览器支持定位！')
+  }else{
+    console.log('该浏览器不支持定位！')
+  } */
+
+  var options = {
+    timeout: 5000,
+    enableHighAccuracy:true
+  }
+
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(success,error,options)
+  }else{
+    console.log('该浏览器不支持定位！')
+  }
+
+  function success(info){
+    console.log(info) // 谷歌可以定位，但不能获取地理位置值
+    console.log(info.coords.latitude) // 纬度
+    console.log(info.coords.longitude) // 经度
+  }
+
+  function error(err){
+    console.log(err)
+  }
+</script>
+</html>

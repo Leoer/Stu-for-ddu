@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二次贝塞尔曲线</title>
+    <style>
+        #cv {
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cv" width="200" height="150">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if (cv.getContext) {
+        var ctx = cv.getContext('2d');
+        ctx.beginPath(); // 开启一个路径的绘制
+        ctx.moveTo(75, 25);
+        ctx.quadraticCurveTo(25,25,25,62);
+        ctx.quadraticCurveTo(25,100,50,100);
+        ctx.quadraticCurveTo(50,120,30,125);
+        ctx.quadraticCurveTo(60,120,65,100);
+        ctx.quadraticCurveTo(125,100,125,62);
+        ctx.quadraticCurveTo(125,25,75,25);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+
+</html>

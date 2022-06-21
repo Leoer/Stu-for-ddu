@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 定义父类
+    function Person(name, sex){
+      this.name = name
+      this.sex = sex
+      this.fn = function(){
+        console.log('.......')
+      }
+    }
+    Person.prototype.addr = '广东深圳' 
+    Person.prototype.eat = function(){
+      return this.name + '最爱吃水果！'
+    }
+
+    // 定义子类
+    function Student(name, sex, age){  // 要先写父类的参数，再子类的参数，父类参数的顺序不能颠倒
+      // 继承的第一步：继承父类构造器上的属性和方法   
+      // Person.call(this, name, sex)
+      Person.apply(this,arguments)
+
+      // console.log(arguments)// arguments用来获取传过来的实参，它是一个伪数组
+
+      this.age = age
+      this.study = function(course){
+        console.log(this.name + '最爱学习' + course)
+      }
+    }
+
+    // Student.prototype = new Person()  // 问题：多出父类构造器中的空属性
+
+    // 继承的第二步：继承父类原型链上的属性和方法
+    Student.prototype = Object.create(Person.prototype) 
+
+    // 继承的第三步：找回丢失的构造器
+    Student.prototype.constructor = Student
+    var stu1 = new Student('王二虎', '男', 19)
+    console.log(stu1)
+    console.log(stu1.eat())
+    stu1.study('语文')
+  </script>
+</body>
+</html>

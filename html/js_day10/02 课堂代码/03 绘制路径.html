@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="cv" width="400" height="400">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if(cv.getContext){
+        var ctx = cv.getContext('2d');
+        ctx.beginPath();// 开始笔触（表示可以开始绘画了）
+        ctx.arc(200, 200, 200, 0, 2 * Math.PI, true); // 绘制圆
+        ctx.moveTo(100,100); // 移动笔触
+        ctx.arc(100, 100, 20, 0, 2 * Math.PI, false); 
+        ctx.moveTo(300,100); 
+        ctx.arc(300, 100, 20, 0, 2 * Math.PI, false); 
+        ctx.moveTo(200,250); 
+        ctx.arc(200, 250, 100, 0, Math.PI, false); 
+        ctx.stroke();// 描边
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+</html>

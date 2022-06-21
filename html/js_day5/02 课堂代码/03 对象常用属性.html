@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // prototype
+    function Person(name,age){
+      this.name = name
+      this.age = age
+    }
+
+    Person.prototype.sex = '男'
+    Person.prototype.work = function(workType){
+      console.log(this.name + '的工作是：' + workType)
+    }
+    
+    var p1 = new Person('Bill', 45);
+    console.log(p1)
+    p1.work('高级工程师')
+
+    console.log(p1.__proto__)// __proto__是一个指向prototype的地址指针
+
+
+    // constructor
+    var arr = [];
+    console.log(arr.constructor === Array); // true
+
+    var isTrue = new Boolean();
+    console.log(isTrue.constructor === Boolean); //true
+    console.log(isTrue.constructor === Array); //false
+
+    console.log(typeof arr, typeof isTrue) // 用typeof测试引用类型的数据时，返回的都是object
+  </script>
+</body>
+</html>

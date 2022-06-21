@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper"></div>
+  <div id="box">这是ID</div>
+  <div class="box">box1</div>
+  <div class="box">box2</div>
+  <div class="box">box3</div>
+  <div class="box">box4</div>
+  <div class="box">box5</div>
+  <p>p1</p>
+  <p>p2</p>
+  <p>p3</p>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<script src="./myframework.js"></script>
+<script>
+  // myFramework()
+  // my()
+
+  // console.log(my().init('<div style="color:red;">box</div>'));
+  // $('.wrapper').append(my().init('<div style="color:red;">box</div>')[0])
+
+  // console.log(my().init('#box'))
+  // my().init('#box')[0].innerHTML = '这是修改后的内容'
+
+  // console.log(my().init('.box'))
+  // my().init('.box')[4].style.color = 'blue'
+
+  // console.log(my().init('p'))
+  // my().init('p')[1].style.color = 'olive'
+
+  // my('p')[2].style.color = 'red'
+
+  // // 获取所有class为box的DOM
+  // console.log(my('.box'));
+  // // 获取class为box的第一个元素DOM
+  // console.log(my('.box').first());
+  // console.log(my('.box').first().innerHTML);
+  // console.log(my('.box').last().innerHTML);
+  // my('.box').get(2).style.cssText = 'color:red;font-size:30px;background:gray;'
+
+  console.log(my());
+
+  my('#box').click(function(){
+    console.log('这是click事件......................');
+  })
+</script>
+</html>

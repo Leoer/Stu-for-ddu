@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>这是一个段落。</p>
+</body>
+<script src="./jquery.js"></script>
+<script src="./jquery.chsize.js"></script>
+<script src="./jquery.formatdate.js"></script>
+<script>
+  console.log(jQuery.prototype === $.fn);
+  $('p').chSize('400px','100px')
+  $('p').setHtml('这是修改后的内容……^^^')
+  console.log($('p').getHtml());
+
+  console.log($.formatDate('今天您吃了吗？'));
+</script>
+</html>

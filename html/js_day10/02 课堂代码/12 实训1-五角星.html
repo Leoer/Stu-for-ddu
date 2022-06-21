@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制图像</title>
+    <style>
+        #cv {
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cv" width="500" height="500">您的浏览器不支持canvas</canvas>
+</body>
+<script>
+    var cv = document.getElementById('cv');
+    if (cv.getContext) {
+        var ctx = cv.getContext('2d');
+        ctx.beginPath();
+        for(var i=0;i<5;i++){
+            ctx.lineTo(Math.cos((18 + i * 72) * Math.PI / 180 ) * 200 + 250,
+                        - Math.sin((18 + i * 72) * Math.PI / 180 ) * 200 + 250)
+            ctx.lineTo(Math.cos((54 + i * 72) * Math.PI / 180 ) * 80 + 250,
+                        - Math.sin((54 + i * 72) * Math.PI / 180 ) * 80 + 250)
+        }
+        ctx.closePath();
+        ctx.lineWidth = 3;
+        ctx.fillStyle = 'yellow';
+        ctx.strokeStyle = 'red';
+        ctx.fill();
+        ctx.stroke();
+    } else {
+        console.log('您的浏览器不支持canvas!');
+    }
+</script>
+
+</html>
