@@ -1,0 +1,175 @@
+adamguan
+
+China East
+
+chinaeast
+
+azurewebsites.net
+
+chinacloudsites.cn
+
+If you don't have an Azure subscription, create a [trial subscription](https://www.microsoft.com/china/azure/index.html?fromtype=cn) before you begin.
+
+```json
+
+```
+ext/azure-iot/
+
+https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest#az-iot-hub-connection-string-show
+
+https://docs.azure.cn/zh-cn/cli/ext/azure-iot/iot/hub/connection-string?view=azure-cli-latest#az-iot-hub-connection-string-sho
+
+https://studio.ml.azure.cn/
+
+https://docs.microsoft.com
+
+NOT AVAILABLE ON FEATURE Data Lake Storage Gen1
+
+mycomputeinstance.chinaeast2.instances.ml.azure.cn
+
+mycomputeinstance.chinanorth.instances.azureml.ms
+
+https://management.chinacloudapi.cn
+
+https://management.azure.com
+
+Supplemental Terms of Use for Azure Previews
+Azure 预览版的补充使用条款：https://www.azure.cn/support/legal/subscription-agreement/
+
+https://www.azure.cn/home/features/expressroute/
+
+https://azure.microsoft.com/en-gb/services/expressroute/
+
+```yaml
+
+```
+
+
+```azurecli
+
+```
+
+```python
+
+```
+
+```bicep
+
+```
+
+```json
+
+```
+site recovery
+Not Available on OR RHEL 5 or CentOS 5 or Debian 7
+
+Content Refresh-20220708(Adam service) 
+
+2022.1008 - adam_live Merge into pre-live branch(Adam services).
+
+2022.0922 - adam_Pre_main Merge into pre-main branch(Adam services).
+
+Connect-AzAccount -Environment AzureChinaCloud
+az cloud set -n AzureChinaCloud
+az cloud set -n AzureCloud
+
+
+app-service定价：https://www.azure.cn/pricing/details/app-service/index.html
+machine-learning定价：https://www.azure.cn/pricing/details/machine-learning/index.html
+
+JBoss EAP for App Service is currently not supported in China
+
+logic-app：暂时不支持zone redundancy
+
+<36bit_ID_placeholder>
+<!-- MOONCAKE Customize ON 20220714 about security by modified ID. -->
+
+<!-- Verify succeeded -->
+
+<!-- algorithm-module-reference/execute-python-script.md NOT AVAILABLE.  -->
+<!-- CORRECT ON component-reference/execute-python-script.md -->
+
+    * __Private DNS Zone__: privatelink.azurecr.io
+    * __Private DNS Zone__: privatelink.azurecr.cn
+
+
+<!--NOT AVAILABLE ON https://shell.azure.com-->
+<!--NOT AVAILABLE ON FEATURE Azure Cloud Shell-->
+From the local Azure CLI console, use the following command to install the 1.0 CLI for Azure Machine Learning
+
+
+[Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md）
+[Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md)
+
+[Transient Fault Handling][lnk-transient-faults]
+https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
+
+To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [How to do a firmware update](tutorial-firmware-update.md).
+
+
+[Where and how to deploy](how-to-deploy-and-where.md)-->how-to-deploy-managed-online-endpoints.md
+
+
+Standard_ZRS NOT AVAILABLE.
+
+[Azure Status](https://status.azure.com/status/)
+
+Azure 视频中心：https://webinars.azure.cn/zh-cn/video-center/
+
+Service updates：https://updates.azure.cn/
+
+machine-learning黑名单：
+how-to-link-synapse-ml-workspaces.md
+how-to-use-mlflow-azure-synapse.md
+how-to-use-synapsesparkstep.md
+
+<!--Verified Successfully-->
+
+integration service environment 这是什么情况？
+<!--NOT AVAILABLE ON FEATURE Integration service environment-->
+
+翻译下来的文章中不需要push到pre-live的文章：<!--  Pending for release. -->
+
+app-service/environment/migration-alternatives.md
+app-service/environment/creation.md
+app-service/environment/how-to-custom-domain-suffix.md
+app-service/environment/migrate.md
+app-service/environment/how-to-migrate.md
+app-service/environment/overview.md
+app-service/environment/using.md
+app-service/environment/overview-certificates.md
+app-service/configure-ssl-certificate.md
+
+azure-functions/start-stop-vms/deploy.md
+azure-functions/start-stop-vms/overview.md
+azure-functions/start-stop-vms/pre-actions.md
+
+site-recovery\vmware-azue-architecture-modernized.md
+site-recovery\physical-server-azure-architecture-modernized.md
+site-recovery\failover-failback-overview-modernized.md
+site-recovery/upgrade-mobility-service-modernized.md
+site-recovery/vmware-azure-tutorial-failover-failback-modernized.md
+
+aks\aks-support-help.md
+
+https://www.azure.cn/pricing/details/app-service/
+
+
+下面如何替换？machine-learning/migrate-to-v2-managed-online-endpoints.md
+http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score
+https://endpoint-name.westus.inference.ml.azure.com/score
+A stable scoring URI (endpoint-name.region.inference.studio.ml.azure.cn)
+cloudapp.chinacloudapi.cn
+Required for write permission to "random name".aksapp.azure.cn
+https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure
+* __Private DNS Zone__: Leave the two private DNS zones at the default values of __privatelink.api.ml.azure.cn__ and __privatelink.notebooks.chinacloudapi.cn__.
+
+
+
+
+Please ensure your network allows websocket connections to instances.ml.azure.cn.
+
+set query_take_max_records= 50000000;
+FileTrackingDistinct
+| where BranchName == 'mc-docs-pr.main' and tolower( Cultures ) == 'zh-cn' and Version > datetime(2022-10-13) and tolower(FileTrackingStatus) == 'handedback'
+| summarize arg_max( EventTime , *) by FileName
