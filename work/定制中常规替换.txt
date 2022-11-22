@@ -151,6 +151,9 @@ site-recovery/upgrade-mobility-service-modernized.md
 site-recovery/vmware-azure-tutorial-failover-failback-modernized.md
 
 aks\aks-support-help.md
+aks\azure-cni-powered-by-cilium.md
+
+iot-hub/iot-hub-query-avro-data.md
 
 https://www.azure.cn/pricing/details/app-service/
 
@@ -173,3 +176,12 @@ set query_take_max_records= 50000000;
 FileTrackingDistinct
 | where BranchName == 'mc-docs-pr.main' and tolower( Cultures ) == 'zh-cn' and Version > datetime(2022-10-13) and tolower(FileTrackingStatus) == 'handedback'
 | summarize arg_max( EventTime , *) by FileName
+
+aks NOT AVAILABLE ON FEATURE `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS`
+[vm-sla]: https://www.azure.cn/support/sla/virtual-machines/
+[Azure Portal]: https://support.azure.cn/zh-cn/support/support-azure/
+
+author: adamguan13
+ms.author: v-guanadam
+
+docs.microsoft.com  -->  
