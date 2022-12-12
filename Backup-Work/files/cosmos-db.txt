@@ -1,0 +1,229 @@
+https://docs.azure.cn/zh-cn/cosmos-db/create-cosmosdb-resources-portal 404 修改index.yml
+
+
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "globally(?!([A-Za-z0-9-/]*\\.(m|M)(d|D)|[A-Za-z0-9-/]*\\.(p|P)(n|N)(g|G)))",
+    "mooncake": "multiple-regionally$1",
+    "comments": "explicit on globally-XXXXXX.png or globally.md and so on "
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "throughput([ \\s]{1,})globally",
+    "mooncake": "throughput China"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "Globally[ \\s]{1,}(access|ambition|distribute|distributed|distribution|data|database|databases|replication|replicated|scale)",
+    "mooncake": "Multiple-regionally $1",
+    "comments": "Cosmos DB the world issue change to China or multiple-region"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "Global[ \\s]{1,}(access|ambition|distributed|distribution|data|database|databases|replication|replicated|scale)",
+    "mooncake": "Multiple-region $1",
+    "comments": "Cosmos DB the world issue change to China or multiple-region"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "globally[ \\s]{1,}(access|ambition|distributed|distribution|data|database|databases|replication|replicated|scale)",
+    "mooncake": "multiple-regionally $1",
+    "comments": "Cosmos DB the world issue change to China or multiple-region"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "global[ \\s]{1,}(access|ambition|distributed|distribution|data|database|databases|replication|replicated|scale)",
+    "mooncake": "multiple-region $1",
+    "comments": "Cosmos DB the world issue change to China or multiple-region"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "globally-distributed(?!([A-Za-z0-9-/]*\\.(m|M)(d|D)|[A-Za-z0-9-/]*\\.(p|P)(n|N)(g|G)))",
+    "mooncake": "multiple-regionally distributed",
+    "comments": "Cosmos DB the world issue change to China or multiple-region"
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "([\\s]){1}globally([\\s]){1}(?!(order|consistency models))",
+    "mooncake": " multiple-regionally ",
+    "comments": "It is last step to update globally single words. except for the order|consistency models."
+}
+{
+    "service": "cosmos-db|cosmosdb-connector.md",
+    "global": "([\\s]){1}global([\\s]){1}(?!(order|consistency models|variables|unique))",
+    "mooncake": " multiple-regional ",
+    "comments": "It is last step to update globally single words. except for the order|consistency models."
+}
+
+
+Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
+
+AVAILABLE ON [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+[Create a trial subscription](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+[Azure Support](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+
+https://<enter Azure Cosmos DB db account name>.azure.com
+https://<enter cosmos db account name>.cosmos.azure.cn
+
+limit-total-account-throughput.md  --> Set the total throughput limit from the Azure portal NOT AVAILABLE.
+
+
+Global:Sign in to your terminal via Azure CLI or PowerShell
+ACN:
+ Login to your terminal via Azure CLI or Powershell
+	
+	<!--CUSTOMIZE ON 10/13/2022-->
+	
+	Export Terraform environment variables
+
+	```cli
+	export ARM_ENVIRONMENT=china
+	```
+
+	```powershell
+	$env:ARM_ENVIRONMENT = "china"
+	```
+	
+	<!--CUSTOMIZE ON 10/13/2022-->
+
+
+You can [activate Visual Studio subscriber benefits](https://www.azure.cn/offers/ms-mc-arz-msdn/)
+
+Without an Azure active subscription:
+- [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)
+
+Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
+globally unique  --》multiple-regionally unique
+
+ Here's an approximate comparison: calls to Azure Cosmos DB within the same region finish within 1 millisecond (ms) to 2 ms, but the latency between the West and East coast of the US is more than 50 ms.
+
+PostgreSQL 暂时不可用-2022.11.02
+
+cosmos-db/reserved-capacity.md not available :Reservations not available.
+
+NOT AVAILABLE ON  - [Azure Cosmos DB resource provider schema](https://docs.microsoft.com/azure/templates/microsoft.documentdb/allversions)
+
+Example value: China East, China North and China East 2     -----》 cosmos-db\graph\use-regional-endpoints.md
+
+String mongoConnectionString = "mongodb://DB AccountName:Password@DB AccountName.documents.azure.cn:10255/?ssl=true&replicaSet=globaldb";
+
+- This article requires version 2.9.1 or later of the Azure CLI.
+
+    <!--NOT AVAILABLE ON If using Azure local Shell, the latest version is already installed.-->
+    <!--NOT AVAILABLE ON FEATURE Azure Cloud Shell-->
+
+
+    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+host=mydemoserver.postgres.database.chinacloudapi.cn
+
+下面这个如何修改？
+   Open Azure Cloud Shell by selecting the **Cloud Shell** icon on the top menu bar.
+
+   :::image type="content" source="media/quickstart-connect-psql/open-cloud-shell.png" alt-text="Screenshot that shows the Cloud Shell icon.":::
+
+   If prompted, choose an Azure subscription in which to store Cloud Shell data.
+
+[Azure Compliance offerings](https://www.trustcenter.cn/zh-cn/compliance/default.html)
+
+NOT AVAILABLE ON ## Try Cosmos DB Free limits
+
+[filing an Azure support ticket](https://support.azure.cn/support/support-azure/)
+[Azure Support request](https://support.azure.cn/support/support-azure/)
+[Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/subscription-agreement/)
+[SLA-backed](https://www.azure.cn/support/sla/cosmos-db)
+[financially backed SLAs](https://www.azure.cn/support/sla/cosmos-db/)
+[azureregions]: https://status.azure.com/status/
+[Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+
+AVAILABLE ON |Germany|51.4.229.218|
+NOT AVAILABLE ON [SQL](./sql-query-getting-started.md)
+<!--NOT AVAILABLE ON ## Try Azure Cosmos DB for free-->
+<!--NOT AVAILABLE ON https://www.azure.cn/try/cosmosdb/-->
+
+NOT AVAILABLE ON The following screenshot illustrates how to create a support request for a container
+Azure support is not available with **Basic** plan
+
+Login-AzAccount  --》Connect-AzAccount -Environment AzureChinaCloud
+
+[create an Azure support request](https://support.azure.cn/support/support-azure/)
+
+Videos：https://www.azure.cn/video-center/
+
+ [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+NOT AVAILABLE ON the total cost for storage
+
+private static final List<String> uselessFiles = new ArrayList<String>();
+public synchronized static List<String> getUselessFiles() {
+	return uselessFiles;
+	}
+not available file:
+cosmos-db/partners-migration.md
+cosmos-db/reserved-capacity.md
+cosmos-db/gremlin/supply-chain-traceability-solution.md
+cosmos-db/cassandra/materialized-views.md
+cosmos-db/mongodb/tutorial-develop-react.md
+cosmos-db/nosql/changefeed-ecommerce-solution.md
+cosmos-db/nosql/defender-for-cosmos-db.md
+cosmos-db/nosql/distribute-throughput-across-partitions-faq.yml
+cosmos-db/nosql/distribute-throughput-across-partitions.md
+cosmos-db/nosql/how-to-delete-by-partition-key.md
+cosmos-db/nosql/migrate-data-striim.md
+cosmos-db/nosql/tutorial-create-notebook.md
+------------------------------------
+cosmos-db/access-previews.md
+cosmos-db/analytical-store-private-endpoints.md
+cosmos-db/burst-capacity-faq.yml
+cosmos-db/burst-capacity.md
+cosmos-db/monitor-account-key-updates.md
+cosmos-db/data-explorer.md
+cosmos-db/dedicated-gateway.md
+cosmos-db/how-to-container-copy.md
+cosmos-db/how-to-configure-integrated-cache.md
+cosmos-db/how-to-setup-cross-tenant-customer-managed-keys.md
+cosmos-db/integrated-cache-faq.md
+cosmos-db/monitor-account-key-updates.md
+cosmos-db/intra-account-container-copy.md
+cosmos-db/integrated-cache.md
+cosmos-db/monitor-server-side-latency.md
+cosmos-db/merge.md
+cosmos-db/monitoring-solutions.md
+cosmos-db/notebooks-faq.yml
+cosmos-db/notebooks-overview.md
+cosmos-db/plan-manage-costs.md
+cosmos-db/synapse-link-power-bi.md
+cosmos-db/try-free.md
+cosmos-db/cassandra/migrate-data-striim.md
+cosmos-db/table/how-to-use-go.md
+--------------------------------------
+cosmos-db/how-to-setup-cmk.md  global delete
+cosmos-db/storage-explorer.md
+
+
+
+ignore:
+distribute-data-globally.md
+GlobalDocumentDB
+global-dist-under-the-hood.md
+globaldb
+tutorial-global-distribution.md
+https://azure.microsoft.com/global-infrastructure/services/
+global majority
+Global Majority
+https://status.azure.com/status/
+
+
+D:\mooncake\Docs\mc-docs-pr\articles\cosmos-db\includes\media\quickstart-hyperscale-create-portal
+cosmos-db/includes/azure-postgresql-hyperscale-create-db.md  --》暂时不可用 
+图片暂时不可用
+
+not available: cosmos-api-choices.png
+
+需要修改的地方
+D:\mooncake\Docs\mc-docs-pr\articles\cosmos-db\includes\cosmos-db-create-dbaccount.md
+
+
+   | API | Azure Cosmos DB for NoSQL | Select **Core (SQL)** option |

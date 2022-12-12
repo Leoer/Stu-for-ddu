@@ -1,0 +1,14 @@
+how-to-use-environments.md
+how-to-manage-environments-v2.md
+
+how-to-machine-learning-interpretability-automl.md
+v1/how-to-machine-learning-interpretability-automl.md
+
+how-to-use-private-python-packages.md
+v1/how-to-use-private-python-packages.md
+
+how-to-train-with-rest.md
+how-to-train-model.md
+
+how-to-train-cli.md
+how-to-train-model.md

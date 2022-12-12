@@ -1,0 +1,66 @@
+ASE Virtual IP
+ASE v2 internal: <ASE-name>.appserviceenvironment.cn
+ASE v2 external: <ASE-name>.p.chinacloudsites.cn
+
+https://<appservice-name>.chinacloudsites.cn/
+
+NEW ADD：
+app-service\webjobs-create.md
+app-service\webjobs-dotnet-deploy-vs.md
+app-service\webjobs-sdk-get-started.md
+app-service\webjobs-sdk-how-to.md
+
+
+app-service/environment/using.md 里面的I1V2、I2V2、I3V2目前没有，图片也不可以。DNS 服务器里面的ip地址需要修改。
+
+关于ASEv1的文章：https://learn.microsoft.com/en-us/azure/app-service/environment/app-service-app-service-environment-intro
+
+app-service/environment/zone-redundancy.md 里面提到的区域是不包括中国的。
+
+由于ASE V3暂时不可用，下面文章定制后待发布。
+app-service/environment/creation.md  (Y)
+app-service/environment/using.md  (N) -注意里面图片的SKU-I1V2类似的 是否满足；IP 地址 图片是否满足
+（app-service/environment/create-from-template.md)需要修改
+（app-service/environment/app-service-app-service-environment-custom-settings.md)需要修改
+app-service/environment/configure-network-settings.md (N)
+app-service/environment/how-to-custom-domain-suffix.md (N)
+app-service/environment/migration-alternatives.md (Y)
+app-service/environment/how-to-migrate.md (N)
+-
+app-service/environment/migrate.md (N)  等待更新可用区域
+app-service/environment/overview.md (N)  等待更新可用区域
+--
+app-service/environment/overview-certificates.md (N)
+app-service/configure-ssl-certificate.md (Y)
+
+<---------------------------------->
+app-service/environment/creation.md
+app-service/environment/using.md
+app-service/environment/create-from-template.md
+app-service/environment/app-service-app-service-environment-custom-settings.md
+app-service/environment/configure-network-settings.md
+app-service/environment/how-to-custom-domain-suffix.md
+app-service/environment/migration-alternatives.md
+app-service/environment/how-to-migrate.md
+app-service/environment/migrate.md 
+app-service/environment/overview.md 
+app-service/environment/networking.md
+app-service/environment/overview-certificates.md
+app-service/configure-ssl-certificate.md
+
+----------------------------------->update
+app-service\webjobs-create.md
+app-service\webjobs-dotnet-deploy-vs.md
+app-service\webjobs-sdk-get-started.md
+app-service\webjobs-sdk-how-to.md
+<---------------------------------->
+
+
+周五修改 app-service/toc.yml 
+	  app-service/environment/toc.yml 删除quickstart
+
+app-service/overview-hosting-plans.md 里面提到的一些SKU不可用：I1v1 I2v1  I3v1  I1v2  I2v2  I3v2 （这些貌似是等v3可用了再有） Isolated 指的是I1v1还是ASEv1
+
+
+最新不可release的文件：
+app-service\environment\migrate.md
