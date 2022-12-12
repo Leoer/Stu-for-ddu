@@ -63,7 +63,7 @@ https://azure.microsoft.com/en-gb/services/expressroute/
 site recovery
 Not Available on OR RHEL 5 or CentOS 5 or Debian 7
 
-Content Refresh-20220708(Adam service) 
+Content Refresh-20221216(Adam service) 
 
 2022.1008 - adam_live Merge into pre-live branch(Adam services).
 
@@ -154,6 +154,10 @@ aks\aks-support-help.md
 aks\azure-cni-powered-by-cilium.md
 
 iot-hub/iot-hub-query-avro-data.md
+
+machine-learning\concept-soft-delete.md
+
+
 
 https://www.azure.cn/pricing/details/app-service/
 
