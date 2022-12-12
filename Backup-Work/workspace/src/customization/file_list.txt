@@ -1,0 +1,12 @@
+azure-functions/functions-bindings-signalr-service.md
+azure-functions/functions-bindings-storage-blob-input.md
+azure-functions/functions-bindings-storage-blob-output.md
+azure-functions/functions-bindings-storage-blob-trigger.md
+azure-functions/functions-bindings-storage-blob.md
+azure-functions/functions-bindings-storage-queue-output.md
+azure-functions/functions-bindings-storage-queue-trigger.md
+azure-functions/functions-bindings-storage-queue.md
+azure-functions/functions-bindings-storage-table-input.md
+azure-functions/functions-bindings-storage-table.md
+azure-functions/functions-bindings-timer.md
+azure-functions/functions-bindings-warmup.md

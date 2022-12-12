@@ -1,0 +1,17 @@
+package customization;
+
+public class RunCustomization {
+
+	public static synchronized void main(String[] args) {
+		
+		WacnReplace81.customize();	
+
+//		WacnReplace81.test_customize();						
+	    
+	}
+}
+
+
+
+
+

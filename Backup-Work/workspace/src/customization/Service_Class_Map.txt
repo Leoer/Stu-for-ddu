@@ -1,0 +1,91 @@
+active-directory                                         =    customization.services.Active_Directory
+active-directory/authentication                          =    customization.services.Active_Directory$Authentication
+active-directory/azuread-dev                             =    customization.services.Active_Directory$Azuread_Dev
+active-directory/external-identities                     =    customization.services.Active_Directory$External_identities
+active-directory/conditional-access                      =    customization.services.Active_Directory$Conditional_Access
+active-directory/develop                                 =    customization.services.Active_Directory$Develop
+active-directory/develop/includes                        =    customization.services.Active_Directory$Develop$Includes
+active-directory/devices                                 =    customization.services.Active_Directory$Devices
+active-directory/fundamentals                            =    customization.services.Active_Directory$Fundamentals
+active-directory/governance                              =    customization.services.Active_Directory$Governance
+active-directory/hybrid                                  =    customization.services.Active_Directory$Hybrid
+active-directory/manage-apps                             =    customization.services.Active_Directory$Manage_apps
+active-directory/manage-apps/scripts                     =    customization.services.Active_Directory$Manage_apps$Scripts
+active-directory/managed-identities-azure-resources      =    customization.services.Active_Directory$Managed_identities_azure_resources
+active-directory/privileged-identity-management          =    customization.services.Active_Directory$Privileged_Identity_Management
+active-directory/reports-monitoring                      =    customization.services.Active_Directory$Reports_monitoring
+active-directory/user-help                               =    customization.services.Active_Directory$User_help
+active-directory/roles                                   =    customization.services.Active_Directory$Roles
+active-directory/enterprise-users                        =    customization.services.Active_Directory$Enterprise_users
+
+application-gateway              		 =    customization.services.Application_Gateway
+application-gateway/scripts              =    customization.services.Application_Gateway$Scripts
+
+azure-functions                  		 =    customization.services.Azure_Functions
+azure-functions/scripts          		 =    customization.services.Azure_Functions$Scripts
+azure-functions/durable          		 =    customization.services.Azure_Functions$Durable
+azure-functions/start-stop-vms           =    customization.services.Azure_Functions$Start_stop_vms
+
+active-directory-b2c             		 =    customization.services.AD_B2C
+cloud-services                   		 =    customization.services.Cloud_Services
+cloud-services-extended-support          =    customization.services.Cloud_services_extended_support
+role-based-access-control        		 =    customization.services.Rbac
+
+azure-cache-for-redis                    =    customization.services.Azure_Cache_For_Redis
+azure-cache-for-redis/scripts            =    customization.services.Azure_Cache_For_Redis$Scripts
+
+service-health                           =    customization.services.Service_Health
+
+spring-cloud                             =    customization.services.Spring_Cloud
+spring-cloud/includes                    =    customization.services.Spring_Cloud$Includes
+
+time-series-insights                     =    customization.services.Time_Series_Insights
+
+virtual-machine-scale-sets               =    customization.services.Vmss
+virtual-machine-scale-sets/scripts       =    customization.services.Vmss$Scripts
+
+web-application-firewall    		     =    customization.services.Web_Application_Firewall
+web-application-firewall/ag    		     =    customization.services.Web_Application_Firewall$Ag
+
+active-directory-domain-services         =    customization.services.ADDS
+
+search                                   =    customization.services.Search
+
+data-explorer                            =    customization.services.Data_explorer
+data-explorer/includes                   =    customization.services.Data_explorer$Includes
+data-explorer/kusto                      =    customization.services.Data_explorer$Kusto
+data-explorer/kusto/api                  =    customization.services.Data_explorer$Kusto$Api
+data-explorer/kusto/concepts             =    customization.services.Data_explorer$Kusto$Concepts
+data-explorer/kusto/functions-library    =    customization.services.Data_explorer$Kusto$Functions_library
+data-explorer/kusto/management           =    customization.services.Data_explorer$Kusto$Management
+data-explorer/kusto/query	             =    customization.services.Data_explorer$Kusto$Query
+data-explorer/kusto/tools                =    customization.services.Data_explorer$Kusto$Tools
+
+data-explorer/kusto/api/connection-strings       =    customization.services.Data_explorer$Kusto$Api$Connection_strings
+data-explorer/kusto/api/golang                   =    customization.services.Data_explorer$Kusto$Api$Golang
+data-explorer/kusto/api/java                     =    customization.services.Data_explorer$Kusto$Api$Java
+data-explorer/kusto/api/monaco                   =    customization.services.Data_explorer$Kusto$Api$Monaco
+data-explorer/kusto/api/netfx                    =    customization.services.Data_explorer$Kusto$Api$Netfx
+data-explorer/kusto/api/node                     =    customization.services.Data_explorer$Kusto$Api$Node
+data-explorer/kusto/api/powershell               =    customization.services.Data_explorer$Kusto$Api$Powershell
+data-explorer/kusto/api/python                   =    customization.services.Data_explorer$Kusto$Api$Python
+data-explorer/kusto/api/r                        =    customization.services.Data_explorer$Kusto$Api$R
+data-explorer/kusto/api/rest                     =    customization.services.Data_explorer$Kusto$Api$Rest
+data-explorer/kusto/api/tds                      =    customization.services.Data_explorer$Kusto$Api$Tds
+
+data-explorer/kusto/management/access-control           =    customization.services.Data_explorer$Kusto$Management$Access_control
+data-explorer/kusto/management/data-export              =    customization.services.Data_explorer$Kusto$Management$Data_export
+data-explorer/kusto/management/data-ingestion           =    customization.services.Data_explorer$Kusto$Management$Data_ingestion
+data-explorer/kusto/management/materialized-views       =    customization.services.Data_explorer$Kusto$Management$Materialized_views
+
+data-explorer/kusto/query/functions	                    =    customization.services.Data_explorer$Kusto$Query$Functions
+data-explorer/kusto/query/scalar-data-types	            =    customization.services.Data_explorer$Kusto$Query$Scalar_data_types
+data-explorer/kusto/query/schema-entities	            =    customization.services.Data_explorer$Kusto$Query$Schema_entities
+
+Azure-RMSDocs                                           =    customization.services.Azure_RMSDocs
+Azure-RMSDocs/develop                                   =    customization.services.Azure_RMSDocs$Develop
+Azure-RMSDocs/rms-client                                =    customization.services.Azure_RMSDocs$Rms_client
+Azure-RMSDocs/includes                                  =    customization.services.Azure_RMSDocs$Includes
+
+hpc-cache                                               =    customization.services.Hpc_cache
+

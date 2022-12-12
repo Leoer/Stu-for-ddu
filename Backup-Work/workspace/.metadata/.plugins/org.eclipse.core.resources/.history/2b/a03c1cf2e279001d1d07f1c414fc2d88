@@ -1,0 +1,12 @@
+machine-learning/concept-compute-target.md
+machine-learning/concept-data.md
+machine-learning/concept-endpoints.md
+machine-learning/concept-ml-pipelines.md
+machine-learning/concept-model-management-and-deployment.md
+machine-learning/concept-prebuilt-docker-images-inference.md
+machine-learning/concept-v2.md
+machine-learning/concept-vulnerability-management.md
+machine-learning/how-to-access-resources-from-endpoints-managed-identities.md
+machine-learning/how-to-authenticate-online-endpoint.md
+machine-learning/how-to-autoscale-endpoints.md
+machine-learning/how-to-configure-auto-train.md

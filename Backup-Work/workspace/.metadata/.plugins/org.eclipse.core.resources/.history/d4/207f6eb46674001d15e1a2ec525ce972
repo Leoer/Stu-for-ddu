@@ -1,0 +1,13 @@
+includes\app-service-web-access-dns-records.md
+includes\app-service-web-access-dns-records-no-h.md
+includes\app-service-web-create-app-service-plan.md
+includes\app-service-web-create-app-service-plan-scus.md
+includes\app-service-web-create-resource-group.md
+includes\app-service-web-create-resource-group-scus.md
+includes\app-service-web-deploy-web-host.md
+includes\app-service-web-deploy-web-parameters.md
+includes\app-service-web-git-push-to-azure.md
+includes\app-service-web-to-api-and-mobile.md
+includes\app-service-web-try-app-service.md
+includes\app-service-web-vnet-regional.md
+includes\app-service-web-vnet-troubleshooting.md

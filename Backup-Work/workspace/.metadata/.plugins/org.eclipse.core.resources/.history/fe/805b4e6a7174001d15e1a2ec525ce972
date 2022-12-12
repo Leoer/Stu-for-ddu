@@ -1,0 +1,15 @@
+app-service/app-service-key-vault-references.md
+app-service/configure-authentication-user-identities.md
+app-service/configure-language-dotnet-framework.md
+app-service/configure-language-dotnetcore.md
+app-service/configure-vnet-integration-routing.md
+app-service/overview-authentication-authorization.md
+app-service/overview-hosting-plans.md
+app-service/quickstart-dotnetcore.md
+app-service/reference-app-settings.md
+app-service/environment/intro.md
+app-service/environment/overview.md
+app-service/includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md
+app-service/includes/quickstart-custom-container/quickstart-custom-container-windows-cli-pivot.md
+app-service/includes/quickstart-custom-container/quickstart-custom-container-windows-powershell-pivot.md
+app-service/includes/quickstart-custom-container/quickstart-custom-container-windows-visual-studio-pivot.md

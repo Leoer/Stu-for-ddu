@@ -1,0 +1,11 @@
+cosmos-db/includes/cosmos-db-create-azure-service-account.md
+cosmos-db/mongodb/how-to-configure-capabilities.md
+cosmos-db/mongodb/indexing.md
+cosmos-db/mongodb/introduction.md
+cosmos-db/nosql/how-to-query-container.md
+cosmos-db/nosql/kafka-connector-sink.md
+cosmos-db/nosql/kafka-connector-source.md
+cosmos-db/nosql/kafka-connector.md
+cosmos-db/nosql/migrate-dotnet-v3.md
+cosmos-db/nosql/performance-tips-query-sdk.md
+cosmos-db/nosql/quickstart-python.md

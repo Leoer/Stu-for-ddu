@@ -1,0 +1,7 @@
+aks/tutorial-kubernetes-deploy-cluster.md
+aks/tutorial-kubernetes-upgrade-cluster.md
+aks/use-azure-dedicated-hosts.md
+aks/use-network-policies.md
+aks/use-system-pools.md
+aks/windows-faq.md
+aks/workload-identity-deploy-cluster.md

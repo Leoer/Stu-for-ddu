@@ -1,0 +1,13 @@
+azure-functions/create-first-function-vs-code-typescript.md
+azure-functions/disable-function.md
+azure-functions/functions-machine-learning-tensorflow.md
+azure-functions/functions-reference-powershell.md
+azure-functions/functions-scale.md
+azure-functions/machine-learning-pytorch.md
+azure-functions/python-memory-profiler-reference.md
+azure-functions/python-scale-performance-reference.md
+azure-functions/recover-python-functions.md
+azure-functions/durable/durable-functions-cloud-backup.md
+azure-functions/durable/durable-functions-http-features.md
+azure-functions/durable/durable-functions-instance-management.md
+azure-functions/durable/durable-functions-sequence.md

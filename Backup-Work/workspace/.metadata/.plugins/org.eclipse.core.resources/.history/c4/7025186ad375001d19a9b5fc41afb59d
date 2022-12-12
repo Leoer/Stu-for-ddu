@@ -1,0 +1,13 @@
+aks/availability-zones.md
+aks/azure-blob-csi.md
+aks/azure-disk-customer-managed-keys.md
+aks/azure-files-csi.md
+aks/cluster-autoscaler.md
+aks/cluster-configuration.md
+aks/cluster-container-registry-integration.md
+aks/concepts-network.md
+aks/concepts-storage.md
+aks/manage-abort-operations.md
+aks/monitor-aks.md
+aks/node-access.md
+aks/operator-best-practices-storage.md
